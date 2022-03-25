@@ -13,7 +13,6 @@ function ResultSearchFilmPage(props) {
     try {
       const fetchResultSearchFilm = async () => {
         const response = await filmApi.postSearchFilmKeyWord(params.keyWord);
-        console.log(response.data.searchResults);
         setItems(response.data.searchResults);
       };
       fetchResultSearchFilm();
@@ -25,9 +24,9 @@ function ResultSearchFilmPage(props) {
   return items ? (
     <ListFilm items={items} />
   ) : (
-    <p className="centered">
+    <div className="centered">
       <LoadingSpinner />
-    </p>
+    </div>
   );
 }
 

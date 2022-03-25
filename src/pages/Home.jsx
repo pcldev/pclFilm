@@ -25,7 +25,6 @@ function Home(props) {
     try {
       const fetchListFilm = async () => {
         const response = await filmApi.getHome();
-        console.log(response);
         setItems(
           response.data.recommendItems
             .filter((item) => !item.bannerProportion)
@@ -55,9 +54,9 @@ function Home(props) {
           </div>
         </React.Fragment>
       ) : (
-        <p className="centered">
+        <div className="centered">
           <LoadingSpinner />
-        </p>
+        </div>
       )}
     </>
   );

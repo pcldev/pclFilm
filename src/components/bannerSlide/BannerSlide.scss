@@ -53,29 +53,6 @@
 
   }
 
-
-
-
-  &::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    @include overlay();
-  }
-
-  &::after {
-    content: "";
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    height: 100px;
-    background-image: linear-gradient(to top, $body-bg, rgba($black, 0));
-  }
-
   &__content {
     @include flex(center, center);
     position: relative;

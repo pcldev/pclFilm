@@ -1,11 +1,9 @@
-import React, { useState, useEffect, useRef } from "react";
+import React from "react";
 
 import SwiperCore, { Autoplay } from "swiper";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { LazyLoadImage } from "react-lazy-load-image-component";
 import Button from "../button/Button";
-
-import filmApi from "../../api/fillmApi";
 
 import "swiper/swiper.scss";
 

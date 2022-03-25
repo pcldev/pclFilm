@@ -6,11 +6,16 @@ import Button from "../button/Button";
 import "./CardFilm.scss";
 
 function CardFilm(props) {
-  const { imageUrl, title } = props;
-
-  const link = "/";
+  let { id, category, imageUrl, title, type } = props;
+  category = category ? category : 0;
+  let link;
+  if (type === "MOVIE") {
+    link = `/movie/${id}/${category}`;
+  } else if (type === "TV") {
+    link = `/tv/${id}/${category}`;
+  }
   return (
-    <Link to="/">
+    <Link to={link}>
       <div className="movie-card">
         <LazyLoadImage src={imageUrl} effect="blur" />
         <Button>

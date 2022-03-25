@@ -21,7 +21,6 @@ function FilmSearch(props) {
     const enterEvent = (e) => {
       e.preventDefault();
       if (e.keyCode === 13) {
-        console.log("asd");
         goToSearch();
       }
     };

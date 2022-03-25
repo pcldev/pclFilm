@@ -5,11 +5,11 @@ const filmApi = {
     const url = "/homePage/getHome?page=0";
     return axiosClient.get(url);
   },
-  getDramaFilms: (params) => {
+  getMovieDetail: (params) => {
     const url = "/movieDrama/get";
     return axiosClient.get(url, { params });
   },
-  getFilmMedia: (params) => {
+  getMovieMedia: (params) => {
     const url = "/media/previewInfo";
     return axiosClient.get(url, { params });
   },
