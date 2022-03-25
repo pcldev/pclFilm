@@ -121,15 +121,17 @@
       transition-delay: 0.9s, 0.9s;
     }
   }
-}
 
-.swiper {
-  width: 100%;
-  height: 100%;
+  .swiper {
+    width: 100%;
+    height: 100%;
+  }
+
+
 }
 
 .swiper-slide {
-  background: #fff;
+  //background: #fff;
 
   /* Center slide text vertically */
   display: -webkit-box;

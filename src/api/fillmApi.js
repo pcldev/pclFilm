@@ -2,8 +2,8 @@ import axiosClient from "./axiosClient";
 
 const filmApi = {
   getHome: (params) => {
-    const url = "/homePage/getHome";
-    return axiosClient.get(url, { params });
+    const url = "/homePage/getHome?page=0";
+    return axiosClient.get(url);
   },
   getDramaFilms: (params) => {
     const url = "/movieDrama/get";
@@ -22,11 +22,11 @@ const filmApi = {
       }\n}`
     );
   },
-  postSearchFIlmKeyWord: (keyWord) => {
+  postSearchFilmKeyWord: (keyWord) => {
     const url = "/search/v1/searchWithKeyWord";
     return axiosClient.post(
       url,
-      `{\n    "searchKeyWord": "${keyWord}",\n    "size": 50,\n    "sort": "",\n    "searchType": ""\n}`
+      `{\n    \"searchKeyWord\": \"spider\",\n    \"size\": 50,\n    \"sort\": \"\",\n    \"searchType\": \"\"\n}`
     );
   },
   getSearchLeaderBoard: () => {
@@ -41,7 +41,7 @@ const filmApi = {
     const url = "/search/v1/search";
     return axiosClient.post(
       url,
-      `{\n    "size": 9,\n    "params": "MOVIE,TVSPECIAL",\n    "area": "",\n    "category": "",\n    "year": "",\n    "subtitles": "",\n    "order": "up"\n}`
+      `{\n    "size": 9,\n    "params": "MOVIE,TVSPECIAL",\n    "area": ${params.area},\n    "category": "",\n    "year": "",\n    "subtitles": "",\n    "order": "up"\n}`
     );
   },
   getPreViewVideos: (params) => {

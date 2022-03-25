@@ -14,11 +14,11 @@ button {
   padding: 0.5rem 1.8rem;
   font-size: 1.5rem;
   font-weight: 600;
-  box-shadow: 0 0 7px 8px #ff000040;
+  box-shadow: 0 0 7px 8px #6b436b;
   transition: box-shadow 0.3s ease;
 
   &:hover {
-    box-shadow: 0 0 7px 15px #ff000040;
+    box-shadow: 0 0 7px 15px #6b436b;
   }
 
   &.small {
@@ -42,4 +42,10 @@ button {
     color: $main-color;
     background-color: $white;
   }
+}
+
+.small {
+  border-width: 2px;
+  padding: 0.25rem 1.5rem;
+  font-size: 1rem;
 }

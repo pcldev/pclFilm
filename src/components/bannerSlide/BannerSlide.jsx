@@ -22,7 +22,6 @@ const BannerSlide = () => {
       try {
         const response = await filmApi.getSearchLeaderBoard();
         setMovieItems(response.data.list);
-        console.log(response);
       } catch {
         console.log("error");
       }
@@ -37,7 +36,7 @@ const BannerSlide = () => {
         grabCursor={true}
         spaceBetween={0}
         slidesPerView={1}
-        autoplay={{ delay: 3000 }}
+        autoplay={{ delay: 10000 }}
         loop={true}
       >
         {movieItems.map((item, i) => (
