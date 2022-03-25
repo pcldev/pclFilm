@@ -15,19 +15,19 @@ const filmApi = {
   },
   postSearchFilm: (name) => {
     const url = "/search/searchLenovo";
-    return axiosClient.post(
-      url,
-      `{\n    \"searchKeyWord\": \"${name}\",\n    \"size\": ${
-        name.trim().length
-      }\n}`
-    );
+    return axiosClient.post(url, {
+      searchKeyWord: name,
+      size: 10,
+    });
   },
   postSearchFilmKeyWord: (keyWord) => {
     const url = "/search/v1/searchWithKeyWord";
-    return axiosClient.post(
-      url,
-      `{\n    \"searchKeyWord\": \"spider\",\n    \"size\": 50,\n    \"sort\": \"\",\n    \"searchType\": \"\"\n}`
-    );
+    return axiosClient.post(url, {
+      searchKeyWord: keyWord,
+      size: 50,
+      sort: "",
+      searchType: "",
+    });
   },
   getSearchLeaderBoard: () => {
     const url = "/search/v1/searchLeaderboard";

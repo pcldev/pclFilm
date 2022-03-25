@@ -1,0 +1,12 @@
+.list-film {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  margin-top: calc(8rem);
+
+  li {
+    max-width: 300px;
+
+  }
+}

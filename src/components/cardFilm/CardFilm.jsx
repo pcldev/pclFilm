@@ -1,4 +1,6 @@
 import React from "react";
+import { LazyLoadImage } from "react-lazy-load-image-component";
+import "react-lazy-load-image-component/src/effects/blur.css";
 import { Link } from "react-router-dom";
 import Button from "../button/Button";
 import "./CardFilm.scss";
@@ -10,7 +12,7 @@ function CardFilm(props) {
   return (
     <Link to="/">
       <div className="movie-card">
-        <img src={imageUrl} alt="" />
+        <LazyLoadImage src={imageUrl} effect="blur" />
         <Button>
           <i className="bx bx-play">Watch</i>
         </Button>

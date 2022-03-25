@@ -8,9 +8,53 @@
   padding: 9rem 0;
   width: 100%;
   position: relative;
-  background-position: center;
-  background-size: cover;
-  background-repeat: no-repeat;
+
+  // background-position: center;
+  // background-size: cover;
+  // background-repeat: no-repeat;
+
+  .banner-img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+
+
+
+    .lazy-load-image-background {
+      display: block !important;
+
+      &::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        @include overlay();
+      }
+
+      &::after {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: 100px;
+        background-image: linear-gradient(to top, $body-bg, rgba($black, 0));
+      }
+
+      img {
+        object-fit: cover;
+        width: 100%;
+      }
+    }
+
+  }
+
+
+
 
   &::before {
     content: "";

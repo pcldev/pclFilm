@@ -7,6 +7,7 @@
 
   img {
     width: 100%;
+
   }
 
 
@@ -28,6 +29,7 @@
     background-color: rgb(58, 55, 55);
     opacity: 0;
     transition: opacity 0.3s ease;
+    z-index: 101;
     //border-radius: $border-radius;
   }
 
@@ -37,6 +39,7 @@
     }
 
     &:hover .btn {
+      z-index: 102;
       transform: translate(-50%, -50%) scale(1);
     }
   }

@@ -4,20 +4,21 @@ import { useLocation, Link, NavLink } from "react-router-dom";
 import logo from "../../assets/pclfilm.png";
 import { useRef } from "react";
 import { useEffect } from "react";
+import FilmSearch from "../search/FilmSearch";
 
 const headerNav = [
   {
     display: "Home",
     path: "/",
   },
-  {
-    display: "Movies",
-    path: "/movie",
-  },
-  {
-    display: "TV Series",
-    path: "/tv",
-  },
+  // {
+  //   display: "Movies",
+  //   path: "/movie",
+  // },
+  // {
+  //   display: "TV Series",
+  //   path: "/tv",
+  // },
 ];
 
 function Header(props) {
@@ -61,6 +62,9 @@ function Header(props) {
               </NavLink>
             </li>
           ))}
+          <li>
+            <FilmSearch />
+          </li>
         </ul>
       </div>
     </div>

@@ -81,3 +81,12 @@ iframe {
 .section__header {
   @include flex(center, space-between);
 }
+
+.flex-wrap {
+  flex-wrap: wrap;
+}
+
+.centered {
+  margin-top: 8rem;
+  text-align: center;
+}

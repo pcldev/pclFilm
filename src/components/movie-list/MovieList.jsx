@@ -1,29 +1,11 @@
 import React from "react";
 import "./MovieList.scss";
 import { Swiper, SwiperSlide } from "swiper/react";
-// import { SwiperSlide, Swiper } from "swiper/swiper-react";
-import { useEffect } from "react";
-import { useState } from "react";
-import filmApi from "../../api/fillmApi";
 import CardFilm from "../cardFilm/CardFilm";
 
 function MovieList(props) {
-  const [items, setItems] = useState([]);
-  useEffect(() => {
-    try {
-      const fetchListFilm = async () => {
-        const response = await filmApi.getHome();
-        setItems(
-          response.data.recommendItems
-            .filter((item) => !item.bannerProportion)
-            .filter((item) => item.homeSectionName !== "")
-        );
-      };
-      fetchListFilm();
-    } catch (err) {
-      console.log(err);
-    }
-  }, []);
+  const items = props.items;
+
   return (
     <div className="movie-list">
       {items &&
