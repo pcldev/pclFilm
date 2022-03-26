@@ -68,4 +68,4 @@ const HeroSlideItem = (props) => {
   );
 };
 
-export default React.memo(BannerSlide);
+export default BannerSlide;

@@ -43,18 +43,13 @@ function Home(props) {
           <BannerSlide movieItems={movieItems} />
           <div className="container">
             <div className="section mb-3">
-              <div className="section__header mb-2">
-                <h2>Trending Movies</h2>
-                <Link to="/movie">
-                  <OutlineButton className="small">View more</OutlineButton>
-                </Link>
-              </div>
+              <div className="section__header mb-2"></div>
               <MovieList items={items} />
             </div>
           </div>
         </React.Fragment>
       ) : (
-        <div className="centered">
+        <div className="mg-8">
           <LoadingSpinner />
         </div>
       )}

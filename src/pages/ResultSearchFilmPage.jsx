@@ -24,7 +24,7 @@ function ResultSearchFilmPage(props) {
   return items ? (
     <ListFilm items={items} />
   ) : (
-    <div className="centered">
+    <div className="mg-8">
       <LoadingSpinner />
     </div>
   );

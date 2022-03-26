@@ -13,7 +13,9 @@ function RouteConfig(props) {
       <Route path="/search/:keyWord">
         <ResultSearchFilmPage />
       </Route>
-      <Route path="/tv/:id"></Route>
+      <Route path="/tv/:id/:category">
+        <DetailMovie />
+      </Route>
       <Route path="/movie/:id/:category">
         <DetailMovie />
       </Route>

@@ -6,26 +6,11 @@ import { useRef } from "react";
 import { useEffect } from "react";
 import FilmSearch from "../search/FilmSearch";
 
-const headerNav = [
-  {
-    display: "Home",
-    path: "/",
-  },
-  // {
-  //   display: "Movies",
-  //   path: "/movie",
-  // },
-  // {
-  //   display: "TV Series",
-  //   path: "/tv",
-  // },
-];
-
 function Header(props) {
-  const { pathname } = useLocation();
+  //const { pathname } = useLocation();
   const headerRef = useRef(null);
 
-  const active = headerNav.findIndex((e) => e.path === pathname);
+  //const active = headerNav.findIndex((e) => e.path === pathname);
 
   useEffect(() => {
     const shrinkHeader = () => {
@@ -52,16 +37,6 @@ function Header(props) {
           <Link to="/">pclfilm</Link>
         </div>
         <ul className="header__nav">
-          {headerNav.map((ele, index) => (
-            <li key={index}>
-              <NavLink
-                to={ele.path}
-                activeClassName={index === active ? "active" : ""}
-              >
-                {ele.display}
-              </NavLink>
-            </li>
-          ))}
           <li>
             <FilmSearch />
           </li>
