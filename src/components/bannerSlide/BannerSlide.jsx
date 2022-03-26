@@ -43,7 +43,7 @@ const HeroSlideItem = (props) => {
   let hisrory = useHistory();
 
   const item = props.item;
-
+  console.log(item);
   const background = item.cover;
 
   return (
@@ -55,7 +55,13 @@ const HeroSlideItem = (props) => {
         <div className="hero-slide__item__content__info">
           <h2 className="title">{item.title}</h2>
           <div className="btns">
-            <Button onClick={() => hisrory.push("/movie/" + item.id)}>
+            <Button
+              onClick={() =>
+                hisrory.push(
+                  `/${item.domainType === 1 ? "tv" : "movie"}/${item.id}/1`
+                )
+              }
+            >
               Watch now
             </Button>
           </div>
@@ -68,4 +74,4 @@ const HeroSlideItem = (props) => {
   );
 };
 
-export default BannerSlide;
+export default React.memo(BannerSlide);
