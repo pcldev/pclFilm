@@ -10,11 +10,10 @@ function Player(props) {
   const params = useParams();
   let { category, id: contentId, episodeVo } = props.item;
   let episodeId =
-    episodeVo.length > 1 ? episodeVo[params.category].id : episodeVo[0].id;
+    episodeVo.length > 1 ? episodeVo[params.category]?.id : episodeVo[0]?.id;
 
   const playerRef = useRef(null);
   const [movieUrl, setMovieUrl] = useState(null);
-  //console.log(category, contentId, episodeId);
   useEffect(() => {
     try {
       const fetchMovieUrl = async () => {
@@ -22,7 +21,7 @@ function Player(props) {
           category,
           contentId,
           episodeId,
-          definition: "GROOT_LD",
+          definition: "GROOT_SD",
         });
         setMovieUrl(response.data.mediaUrl);
       };

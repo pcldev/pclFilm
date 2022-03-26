@@ -19,6 +19,9 @@ function RouteConfig(props) {
       <Route path="/movie/:id/:category" exact>
         <DetailMovie />
       </Route>
+      <Route path="*">
+        <h1>Nothing here</h1>
+      </Route>
     </Switch>
   );
 }

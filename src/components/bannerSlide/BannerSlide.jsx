@@ -56,7 +56,11 @@ const HeroSlideItem = (props) => {
             <Button
               onClick={() =>
                 hisrory.push(
-                  `/${item.domainType === 1 ? "tv" : "movie"}/${item.id}/0`
+                  `/${
+                    item.domainType === 1
+                      ? `movie/${item.id}/1`
+                      : `movie/${item.id}/0`
+                  }`
                 )
               }
             >
