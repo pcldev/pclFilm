@@ -3,7 +3,6 @@ import CardFilm from "./CardFilm";
 import "./ListFilm.scss";
 function ListFilm(props) {
   const items = props.items;
-  console.log(items);
   return (
     <ul className="list-film container">
       {items &&
