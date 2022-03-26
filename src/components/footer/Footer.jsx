@@ -5,13 +5,18 @@ import background from "../../assets/footer-bg.jpg";
 import logo from "../../assets/pclfilm.png";
 
 function Footer(props) {
+  const onScrollToTop = () => {
+    window.scrollTo(0, 0);
+  };
   return (
     <div className="footer" style={{ backgroundImage: `url(${background})` }}>
       <div className="footer__content container">
         <div className="footer__content__logo">
           <div className="logo">
             <img src={logo} alt="" />
-            <Link to="/">pclfilm</Link>
+            <Link to="/" onClick={onScrollToTop}>
+              pclfilm
+            </Link>
           </div>
         </div>
         <div className="footer__content__menus">

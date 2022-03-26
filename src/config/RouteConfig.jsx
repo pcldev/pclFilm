@@ -3,26 +3,20 @@ import { Route, Switch } from "react-router-dom";
 import ResultSearchFilmPage from "../pages/ResultSearchFilmPage";
 import Home from "../pages/Home";
 import DetailMovie from "../pages/DetailMovie/DetailMovie";
-import ScrollToTop from "../components/scrollTop/ScrollToTop";
 
 function RouteConfig(props) {
   return (
     <Switch>
-      <ScrollToTop>
-        <Switch>
-          <Route path="/" exact>
-            <Home />
-          </Route>
-        </Switch>
-      </ScrollToTop>
-
-      <Route path="/search/:keyWord">
+      <Route path="/" exact>
+        <Home />
+      </Route>
+      <Route path="/search/:keyWord" exact>
         <ResultSearchFilmPage />
       </Route>
-      <Route path="/tv/:id/:category">
+      <Route path="/tv/:id/:category" exact>
         <DetailMovie />
       </Route>
-      <Route path="/movie/:id/:category">
+      <Route path="/movie/:id/:category" exact>
         <DetailMovie />
       </Route>
     </Switch>
