@@ -65,7 +65,7 @@ function DetailMovie(props) {
                   <h3>Episodes</h3>
                   {item.episodeVo.map((ele, index) => (
                     <NavLink
-                      to={`/tv/${id}/${ele.seriesNo}`}
+                      to={`/tv/${id}/${ele.seriesNo - 1}`}
                       activeClassName="active"
                       key={index}
                     >
