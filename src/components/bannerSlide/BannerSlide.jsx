@@ -13,7 +13,6 @@ import { useHistory } from "react-router";
 const BannerSlide = (props) => {
   const movieItems = props.movieItems;
   SwiperCore.use([Autoplay]);
-
   return (
     <div className="hero-slide">
       <Swiper
@@ -43,7 +42,6 @@ const HeroSlideItem = (props) => {
   let hisrory = useHistory();
 
   const item = props.item;
-  console.log(item);
   const background = item.cover;
 
   return (

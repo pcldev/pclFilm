@@ -26,7 +26,6 @@ function DetailMovie(props) {
     fetchDetailMovie();
   }, [id, category]);
 
-  console.log(item);
   return (
     <>
       {item ? (

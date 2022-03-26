@@ -8,7 +8,7 @@ import "./CardFilm.scss";
 function CardFilm(props) {
   let { id, category, imageUrl, title, type } = props;
   category = category ? category : 0;
-  let link;
+  let link = "/";
   if (type === "MOVIE") {
     link = `/movie/${id}/${category}`;
   } else if (type === "TV" || type === "DRAMA") {

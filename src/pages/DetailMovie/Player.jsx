@@ -24,7 +24,6 @@ function Player(props) {
           episodeId,
           definition: "GROOT_LD",
         });
-        console.log(response);
         setMovieUrl(response.data.mediaUrl);
       };
       fetchMovieUrl();
