@@ -1,15 +1,18 @@
 @use "../../scss"as *;
 
+a {
+  width: 100%;
+}
+
 .movie-card {
   position: relative;
+  width: 100%;
   margin-bottom: 1rem;
-
 
   img {
     width: 100%;
 
   }
-
 
   .btn {
     position: absolute;
@@ -43,6 +46,10 @@
       transform: translate(-50%, -50%) scale(1);
     }
   }
+
+  .lazy-load-image-background {
+    width: 100%;
+  }
 }
 
 h3 {
@@ -50,4 +57,9 @@ h3 {
   font-size: 23px;
   color: $white;
   z-index: 100;
+
+  @include mobile-small {
+
+    font-size: 18px;
+  }
 }

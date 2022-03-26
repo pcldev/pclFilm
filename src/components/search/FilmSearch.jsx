@@ -31,7 +31,7 @@ function FilmSearch(props) {
   }, [goToSearch]);
 
   return (
-    <div className="section ">
+    <div className="section mv-container">
       <div className="movie-search">
         <Input
           type="text"

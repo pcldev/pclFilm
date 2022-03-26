@@ -1,5 +1,11 @@
 @use "../../scss/"as *;
 
+.mv-container {
+  @include mobile {
+    width: 100%;
+  }
+}
+
 .movie-search {
   position: relative;
   width: 100%;

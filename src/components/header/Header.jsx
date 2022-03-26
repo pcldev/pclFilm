@@ -37,9 +37,7 @@ function Header(props) {
           <Link to="/">pclfilm</Link>
         </div>
         <ul className="header__nav">
-          <li>
-            <FilmSearch />
-          </li>
+          <FilmSearch />
         </ul>
       </div>
     </div>
