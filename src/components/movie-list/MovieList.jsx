@@ -5,6 +5,7 @@ import CardFilm from "../cardFilm/CardFilm";
 
 function MovieList(props) {
   const items = props.items;
+  console.log(items);
   return (
     <div className="movie-list">
       {items.find((item) => item.homeSectionName) ? (
@@ -30,7 +31,12 @@ function MovieList(props) {
         <Swiper grabCursor={true} spaceBetween={10} slidesPerView={"auto"}>
           {items.map((item, index) => (
             <SwiperSlide key={index}>
-              <CardFilm imageUrl={item.coverVerticalUrl} title={item.name} />
+              <CardFilm
+                imageUrl={item.coverVerticalUrl}
+                title={item.name}
+                id={item?.id}
+                category={item?.category}
+              />
             </SwiperSlide>
           ))}
         </Swiper>
