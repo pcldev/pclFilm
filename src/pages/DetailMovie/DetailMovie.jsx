@@ -10,7 +10,7 @@ import MovieList from "../../components/movie-list/MovieList";
 import LoadingSpinner from "../../components/spinner/LoadingSpinner";
 
 import "./DeatailMovie.scss";
-import Player from "./Player";
+import MoviePlayer from "./Player";
 
 function DetailMovie(props) {
   const { id, category } = useParams();
@@ -57,7 +57,7 @@ function DetailMovie(props) {
           </div>
           <div className="container">
             <div className="section mb-3">
-              <Player item={item} />
+              <MoviePlayer item={item} />
               <h2 className="mt-2 font-size-22 ">{item.name}</h2>
 
               {item.episodeVo.length > 1 && (
