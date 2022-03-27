@@ -7,13 +7,21 @@ import { useParams } from "react-router-dom";
 import filmApi from "../../api/fillmApi";
 import { Player } from "react-tuby";
 import "react-tuby/css/main.css";
-import { useCallback } from "react";
 import { useMemo } from "react";
 import { convertSrtToVtt } from "../../share/convertSrtToVtt";
 
+const convertQualityToString = (groot) => {
+  if (groot === "GROOT_HD") {
+    return "Full HD";
+  } else if (groot === "GROOT_SD") {
+    return 720;
+  } else if (groot === "GROOT_LD") {
+    return 540;
+  }
+};
+
 function MoviePlayer(props) {
   const params = useParams();
-  console.log(props.item);
   let { category, id: contentId, episodeVo } = props.item;
   let episodeId =
     episodeVo.length > 1 ? episodeVo[params.category]?.id : episodeVo[0]?.id;
@@ -35,39 +43,30 @@ function MoviePlayer(props) {
     subtitleList.push(subtitles);
   });
 
-  // console.log(subtitleList);
-  // console.log(typeGroot);
   const playerRef = useRef(null);
   const [movieUrl, setMovieUrl] = useState();
 
   useEffect(() => {
     try {
       const fetchMovieUrl = async () => {
-        // const response = await Promise.all(
-        //   typeGroot.map(async (typeG) => {
-        //     const res = await filmApi.getMovieMedia({
-        //       category,
-        //       contentId,
-        //       episodeId,
-        //       definition: typeG,
-        //     });
-        //     return res;
-        //   })
-        // ).then((values) => values);
-        // console.log(response);
-        // const newArrMediaUrl = [];
-        // response.forEach((dat) => {
-        //   newArrMediaUrl.push(dat.data.mediaUrl);
-        // });
-        // setMovieUrl(newArrMediaUrl);
-        const response = await filmApi.getMovieMedia({
-          category,
-          contentId,
-          episodeId,
-          definition: "GROOT_SD",
+        const response = await Promise.all(
+          typeGroot.map(async (typeG) => {
+            return await filmApi.getMovieMedia({
+              category,
+              contentId,
+              episodeId,
+              definition: typeG,
+            });
+          })
+        ).then((values) => values);
+        const newArrMediaUrl = [];
+        response.forEach((dat) => {
+          newArrMediaUrl.push({
+            quality: convertQualityToString(dat.data.currentDefinition),
+            url: dat.data.mediaUrl,
+          });
         });
-        // console.log(response);
-        setMovieUrl(response.data.mediaUrl);
+        setMovieUrl(newArrMediaUrl);
       };
       fetchMovieUrl();
     } catch (err) {
@@ -115,12 +114,7 @@ function MoviePlayer(props) {
         ))} */}
       {movieUrl && (
         <Player
-          src={[
-            {
-              quality: 720,
-              url: movieUrl,
-            },
-          ]}
+          src={movieUrl}
           subtitles={subtitleList}
           poster={props.item.coverHorizontalUrl}
         >
