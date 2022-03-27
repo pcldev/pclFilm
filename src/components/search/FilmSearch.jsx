@@ -35,7 +35,7 @@ function FilmSearch(props) {
       <div className="movie-search">
         <Input
           type="text"
-          placeholder="Enter keyword"
+          placeholder="Search..."
           value={keyWord}
           onChange={(e) => setKeyWord(e.target.value)}
         />
