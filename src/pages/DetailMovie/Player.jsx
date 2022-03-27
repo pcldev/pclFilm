@@ -9,6 +9,7 @@ import { Player } from "react-tuby";
 import "react-tuby/css/main.css";
 import { useCallback } from "react";
 import { useMemo } from "react";
+import { convertSrtToVtt } from "../../share/convertSrtToVtt";
 
 function MoviePlayer(props) {
   const params = useParams();
@@ -30,12 +31,12 @@ function MoviePlayer(props) {
     const subtitles = Object.create(subtitleObj);
     subtitles.lang = sub.languageAbbr;
     subtitles.language = sub.language;
-    subtitles.url = sub.subtitlingUrl;
+    subtitles.url = convertSrtToVtt(sub.subtitlingUrl);
     subtitleList.push(subtitles);
   });
 
-  console.log(subtitleList);
-  console.log(typeGroot);
+  // console.log(subtitleList);
+  // console.log(typeGroot);
   const playerRef = useRef(null);
   const [movieUrl, setMovieUrl] = useState();
 
@@ -65,7 +66,7 @@ function MoviePlayer(props) {
           episodeId,
           definition: "GROOT_SD",
         });
-        console.log(response);
+        // console.log(response);
         setMovieUrl(response.data.mediaUrl);
       };
       fetchMovieUrl();
@@ -78,7 +79,7 @@ function MoviePlayer(props) {
     const height = (playerRef?.current?.offsetWidth * 9) / 16 + "px";
     playerRef?.current?.setAttribute("height", height);
   }, []);
-  console.log(movieUrl);
+  // console.log(movieUrl);
 
   return (
     <>
@@ -122,7 +123,16 @@ function MoviePlayer(props) {
           ]}
           subtitles={subtitleList}
           poster={props.item.coverHorizontalUrl}
-        />
+        >
+          {(ref, props) => <ReactHlsPlayer playerRef={ref} {...props} />}
+        </Player>
+        // <ReactHlsPlayer
+        //   src={movieUrl}
+        //   controls={true}
+        //   width="100%"
+        //   height="auto"
+        //   playerRef={playerRef}
+        // />
       )}
     </>
   );
