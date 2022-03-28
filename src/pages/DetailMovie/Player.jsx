@@ -9,6 +9,7 @@ import { Player } from "react-tuby";
 import "react-tuby/css/main.css";
 import { useMemo } from "react";
 import { convertSrtToVtt } from "../../share/convertSrtToVtt";
+import { Beforeunload, useBeforeunload } from "react-beforeunload";
 
 const convertQualityToString = (groot) => {
   if (groot === "GROOT_HD") {
@@ -44,7 +45,24 @@ function MoviePlayer(props) {
   });
 
   const playerRef = useRef(null);
-  const [movieUrl, setMovieUrl] = useState();
+  const [movieUrl, setMovieUrl] = useState(null);
+  // const [playerCurrentTime, setPlayerCurrentTime] = useState(null);
+
+  // const pastTime = localStorage.getItem(`${contentId}/${params.category}`);
+
+  // if(playerRef.current){
+  //   playerRef.current.currentTime = pastTime;
+
+  // }
+
+  // const savedCurrentTimeVideo = () => {
+  //   if (pastTime === "0" || !pastTime) {
+  //     localStorage.setItem(
+  //       `${contentId}/${params.category}`,
+  //       playerRef.current.currentTime
+  //     );
+  //   }
+  // };
 
   useEffect(() => {
     try {
@@ -78,56 +96,32 @@ function MoviePlayer(props) {
     const height = (playerRef?.current?.offsetWidth * 9) / 16 + "px";
     playerRef?.current?.setAttribute("height", height);
   }, []);
-  // console.log(movieUrl);
+
+  // useEffect(() => {
+  //   console.log(playerRef);
+  //   if (playerRef.current) {
+  //     if (playerRef.current.duration !== 0) {
+  //       console.log("check");
+  //       playerRef.current.currentTime = pastTime;
+  //     }
+  //     //setPlayerCurrentTime()
+  //   }
+  // }, [movieUrl, pastTime]);
 
   return (
     <>
-      {/* {movieUrl && (
-        // movieUrl.map((mov, index) => (
-        //   <ReactHlsPlayer
-        //     key={index}
-        //     src={mov}
-        //     controls={true}
-        //     width="100%"
-        //     height="auto"
-        //     playerRef={playerRef}
-        //   />
-        // ))
-        <ReactHlsPlayer
-          src={movieUrl}
-          controls={true}
-          width="100%"
-          height="auto"
-          playerRef={playerRef}
-        />
-      )} */}
-      {/* {movieUrl &&
-        movieUrl.map((mov, index) => (
-          <ReactHlsPlayer
-            key={index}
-            src={mov}
-            controls={true}
-            width="100%"
-            height="auto"
-            playerRef={playerRef}
-          />
-        ))} */}
+      {/* <Beforeunload onBeforeunload={savedCurrentTimeVideo}> */}
       {movieUrl && (
         <Player
           src={movieUrl}
           subtitles={subtitleList}
           poster={props.item.coverHorizontalUrl}
+          playerRef={playerRef}
         >
           {(ref, props) => <ReactHlsPlayer playerRef={ref} {...props} />}
         </Player>
-        // <ReactHlsPlayer
-        //   src={movieUrl}
-        //   controls={true}
-        //   width="100%"
-        //   height="auto"
-        //   playerRef={playerRef}
-        // />
       )}
+      {/* </Beforeunload> */}
     </>
   );
 }
