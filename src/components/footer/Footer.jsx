@@ -2,7 +2,7 @@ import React from "react";
 import "./Footer.scss";
 import { Link } from "react-router-dom";
 import background from "../../assets/footer-bg.jpg";
-import logo from "../../assets/pclfilm.png";
+import logo from "../../assets/pclFilmMain.png";
 
 function Footer(props) {
   const onScrollToTop = () => {

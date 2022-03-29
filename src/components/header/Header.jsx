@@ -1,7 +1,7 @@
 import React from "react";
 import "./Header.scss";
-import { useLocation, Link, NavLink } from "react-router-dom";
-import logo from "../../assets/pclfilm.png";
+import { Link } from "react-router-dom";
+import logo from "../../assets/pclFilmMain.png";
 import { useRef } from "react";
 import { useEffect } from "react";
 import FilmSearch from "../search/FilmSearch";

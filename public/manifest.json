@@ -3,17 +3,17 @@
   "name": "pclFilm",
   "icons": [
     {
-      "src": "pclfilm.png",
+      "src": "pclFilmMain.png",
       "sizes": "64x64 32x32 24x24 16x16",
       "type": "image/x-icon"
     },
     {
-      "src": "pclfilm.png",
+      "src": "pclFilmMain.png",
       "type": "image/png",
       "sizes": "192x192"
     },
     {
-      "src": "pclfilm.png",
+      "src": "pclFilmMain.png",
       "type": "image/png",
       "sizes": "512x512"
     }
