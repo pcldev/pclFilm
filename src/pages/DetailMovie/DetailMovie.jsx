@@ -19,7 +19,11 @@ function DetailMovie(props) {
 
   useEffect(() => {
     const fetchDetailMovie = async () => {
-      const response = await filmApi.getMovieDetail({ id, category });
+      const response = await filmApi.getMovieDetail({
+        id,
+        category: category - 1,
+      });
+      console.log(response.data);
       setItem(response.data);
       window.scrollTo(0, 0);
     };
