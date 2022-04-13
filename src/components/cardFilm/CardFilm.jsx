@@ -6,15 +6,15 @@ import Button from "../button/Button";
 import "./CardFilm.scss";
 
 function CardFilm(props) {
-  let { id, category, imageUrl, title, type } = props;
+  let { id, category, imageUrl, title } = props;
 
-  category = category ? category : 0;
-
+  //category = category ? category : 0;
   let link = "/";
-  if (type === "MOVIE" || !type) {
-    link = `/movie/${id}/${category + 1}`;
-  } else {
-    link = `/tv/${id}/${category - 1}`;
+
+  if (category === 0 || props.domainType === 0) {
+    link = `/movie/${id}/${category ? category + 1 : props.domainType + 1}`;
+  } else if (category === 1 || props.domainType === 1) {
+    link = `/tv/${id}/${category ? category - 1 : props.domainType - 1}`;
   }
   return (
     <Link to={link} title={title}>

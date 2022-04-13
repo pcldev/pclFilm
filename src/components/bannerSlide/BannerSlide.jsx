@@ -43,7 +43,6 @@ const HeroSlideItem = (props) => {
 
   const item = props.item;
   const background = item.cover;
-  console.log(item);
   return (
     <div className={`hero-slide__item ${props.className}`}>
       <div className="banner-img">
