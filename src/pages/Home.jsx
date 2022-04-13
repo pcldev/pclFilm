@@ -27,7 +27,7 @@ function Home(props) {
       const fetchListFilm = async () => {
         const response = await filmApi.getHome();
         setItems(
-          response.data.recommendItems
+          response.data?.recommendItems
             .filter((item) => !item.bannerProportion)
             .filter((item) => item.homeSectionName !== "")
         );

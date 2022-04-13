@@ -5,6 +5,7 @@ import CardFilm from "../cardFilm/CardFilm";
 
 function MovieList(props) {
   const items = props.items;
+  console.log(items);
   return (
     <div className="movie-list">
       {items.find((item) => item.homeSectionName) ? (
