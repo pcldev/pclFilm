@@ -14,6 +14,7 @@ function Home(props) {
     const getMovies = async () => {
       try {
         const response = await filmApi.getSearchLeaderBoard();
+        document.title = "pclfilm";
         setMovieItems(response.data.list);
       } catch {
         console.log("error");

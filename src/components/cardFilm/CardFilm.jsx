@@ -15,7 +15,7 @@ function CardFilm(props) {
     link = `/tv/${id}/${category - 1}`;
   }
   return (
-    <Link to={link}>
+    <Link to={link} title={title}>
       <div className="movie-card">
         <LazyLoadImage src={imageUrl} effect="blur" />
         <Button>

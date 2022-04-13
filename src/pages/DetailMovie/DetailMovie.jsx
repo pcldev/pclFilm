@@ -23,6 +23,7 @@ function DetailMovie(props) {
         id,
         category: category - 1,
       });
+      document.title = `Watching ${response.data.name}`;
       setItem(response.data);
       window.scrollTo(0, 0);
     };
