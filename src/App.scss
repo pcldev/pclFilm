@@ -32,7 +32,27 @@ body {
   @include mobile {
     margin-bottom: 3rem;
   }
+
+  &::-webkit-scrollbar-track {
+    background-color: $body-bg;
+    border-radius: 100px;
+  }
+
+  &::-webkit-scrollbar {
+    background-color: #F5F5F5;
+    border-radius: 100px;
+    width: 12px;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    width: 1px;
+    border-radius: 100px;
+    background-color: #555;
+  }
+
 }
+
+
 
 a {
   text-decoration: none;
