@@ -10,7 +10,7 @@ function CardFilm(props) {
   category = category ? category : 0;
   let link = "/";
   if (type === "MOVIE") {
-    link = `/movie/${id}/${category}`;
+    link = `/movie/${id}/${category + 1}`;
   } else {
     link = `/tv/${id}/${category - 1}`;
   }
