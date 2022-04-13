@@ -97,3 +97,31 @@
 
   }
 }
+
+.episodes {
+  display: flex;
+  justify-content: start;
+  width: 100%;
+  overflow-x: scroll;
+  flex-wrap: nowrap;
+
+  &::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+    background-color: $body-bg;
+  }
+
+  &::-webkit-scrollbar {
+    background-color: #F5F5F5;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    width: 15px;
+    border-radius: 100px;
+    -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, .3);
+    background-color: #555;
+  }
+
+  a {
+    width: min-content;
+  }
+}

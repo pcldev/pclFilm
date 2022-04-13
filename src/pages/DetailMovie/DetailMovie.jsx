@@ -23,7 +23,6 @@ function DetailMovie(props) {
         id,
         category: category - 1,
       });
-      console.log(response.data);
       setItem(response.data);
       window.scrollTo(0, 0);
     };
@@ -67,17 +66,19 @@ function DetailMovie(props) {
               {item.episodeVo.length > 1 && (
                 <div className="container section mt-2 mb-2 episode">
                   <h3>Episodes</h3>
-                  {item.episodeVo.map((ele, index) => (
-                    <NavLink
-                      to={`/tv/${id}/${ele.seriesNo - 1}`}
-                      activeClassName="active"
-                      key={index}
-                    >
-                      <OutlineButton className="small">
-                        {ele.seriesNo}
-                      </OutlineButton>
-                    </NavLink>
-                  ))}
+                  <div className="episodes">
+                    {item.episodeVo.map((ele, index) => (
+                      <NavLink
+                        to={`/tv/${id}/${ele.seriesNo - 1}`}
+                        activeClassName="active"
+                        key={index}
+                      >
+                        <OutlineButton className="small">
+                          {ele.seriesNo}
+                        </OutlineButton>
+                      </NavLink>
+                    ))}
+                  </div>
                 </div>
               )}
               <div className="section mb-3">

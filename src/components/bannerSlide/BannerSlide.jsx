@@ -43,7 +43,7 @@ const HeroSlideItem = (props) => {
 
   const item = props.item;
   const background = item.cover;
-
+  console.log(item);
   return (
     <div className={`hero-slide__item ${props.className}`}>
       <div className="banner-img">
@@ -58,8 +58,8 @@ const HeroSlideItem = (props) => {
                 hisrory.push(
                   `/${
                     item.domainType === 1
-                      ? `movie/${item.id}/1`
-                      : `movie/${item.id}/0`
+                      ? `tv/${item.id}/0`
+                      : `movie/${item.id}/1`
                   }`
                 )
               }
