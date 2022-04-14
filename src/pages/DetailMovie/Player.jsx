@@ -80,7 +80,7 @@ function MoviePlayer(props) {
         const newArrMediaUrl = [];
         response.forEach((dat) => {
           newArrMediaUrl.push({
-            quality: convertQualityToString(dat.data.currentDefinition),
+            quality: convertQualityToString(dat.data?.currentDefinition),
             url: dat.data.mediaUrl,
           });
         });
