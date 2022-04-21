@@ -1,0 +1,103 @@
+@use '../../scss/'as *;
+
+.animated-bg {
+  background-image: linear-gradient(45deg,
+      #171717 0%,
+      #342c32 50%,
+      #492750 100%,
+    );
+  background-size: 200% 100%;
+  animation: bgPos 1s linear infinite;
+
+  &.hero-slide {
+    width: 100%;
+    height: 100%;
+  }
+
+  &.banner {
+    height: 50vh;
+    position: relative;
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+  }
+
+  &.list-movie {
+    width: 100%;
+    height: 350px;
+  }
+
+  &.coverVerticalUrl {
+    width: 100%;
+    height: 500px;
+    border-radius: $border-radius;
+
+    @include tablet {
+      height: 300px;
+    }
+  }
+
+  &.coverHorizontalUrl {
+    width: 100%;
+    height: 500px;
+    border-radius: $border-radius;
+
+    @include tablet {
+      height: 300px;
+    }
+  }
+
+  &.title {
+    width: 100%;
+    height: 130px;
+
+    @include tablet {
+      height: 80px;
+    }
+  }
+
+  &.genres {
+    width: 100%;
+    height: 25px;
+  }
+
+  &.overview {
+    width: 100%;
+    height: 150px;
+
+    @include tablet {
+      height: 100px;
+    }
+  }
+
+  &.movie {
+    width: 100%;
+    height: 45vh;
+  }
+
+  &.movie_name {
+    width: 100%;
+    height: 40px;
+  }
+}
+
+
+
+
+@keyframes bgPos {
+  0% {
+    opacity: 1;
+  }
+
+  25% {
+    opacity: 0.5;
+  }
+
+  50% {
+    opacity: 0.7;
+  }
+
+  100% {
+    opacity: 0.9;
+  }
+}

@@ -8,7 +8,7 @@ import filmApi from "../api/fillmApi";
 import LoadingSpinner from "../components/spinner/LoadingSpinner";
 function Home(props) {
   const [items, setItems] = useState(null);
-  const [movieItems, setMovieItems] = useState([]);
+  const [movieItems, setMovieItems] = useState(null);
 
   useEffect(() => {
     const getMovies = async () => {
@@ -39,21 +39,15 @@ function Home(props) {
   }, []);
   return (
     <>
-      {items && movieItems ? (
-        <React.Fragment>
-          <BannerSlide movieItems={movieItems} />
-          <div className="container">
-            <div className="section mb-3">
-              <div className="section__header mb-2"></div>
-              <MovieList items={items} />
-            </div>
+      <div>
+        <BannerSlide movieItems={movieItems} />
+        <div className="container">
+          <div className="section mb-3">
+            <div className="section__header mb-2"></div>
+            <MovieList items={items} />
           </div>
-        </React.Fragment>
-      ) : (
-        <div className="mg-8">
-          <LoadingSpinner />
         </div>
-      )}
+      </div>
     </>
   );
 }

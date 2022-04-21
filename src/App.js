@@ -4,8 +4,6 @@ import RouteConfig from "./config/RouteConfig";
 import Footer from "./components/footer/Footer";
 
 function App() {
-  if (process.env.NODE_ENV === "production")
-    console.log = function no_console() {};
   return (
     <div>
       <Header />
