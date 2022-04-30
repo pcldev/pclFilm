@@ -1,11 +1,8 @@
 import React, { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
 import BannerSlide from "../components/bannerSlide/BannerSlide";
-import OutlineButton from "../components/button/OutlineButton";
 import MovieList from "../components/movie-list/MovieList";
 
 import filmApi from "../api/fillmApi";
-import LoadingSpinner from "../components/spinner/LoadingSpinner";
 function Home(props) {
   const [items, setItems] = useState(null);
   const [movieItems, setMovieItems] = useState(null);

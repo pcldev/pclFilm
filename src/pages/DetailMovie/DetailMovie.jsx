@@ -8,7 +8,6 @@ import filmApi from "../../api/fillmApi";
 import OutlineButton from "../../components/button/OutlineButton";
 import SekeletonMovie from "../../components/customSkeletonLoading/SekeletonMovie";
 import MovieList from "../../components/movie-list/MovieList";
-import LoadingSpinner from "../../components/spinner/LoadingSpinner";
 
 import "./DetailMovie.scss";
 import MoviePlayer from "./Player";
@@ -30,6 +29,8 @@ function DetailMovie(props) {
     };
     fetchDetailMovie();
   }, [id, category]);
+
+  console.log(item)
 
   return (
     <>
@@ -62,7 +63,7 @@ function DetailMovie(props) {
               </div>
               <div className="genres">
                 {item ? (
-                  item.tagNameList.map((tagName, index) => (
+                  item.tagNameList?.map((tagName, index) => (
                     <span key={index} className="genres__item">
                       {tagName}
                     </span>

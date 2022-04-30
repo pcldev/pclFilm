@@ -1,4 +1,4 @@
-@use "../../scss"as *;
+@use "../../scss" as *;
 
 a {
   width: 100%;
@@ -11,7 +11,6 @@ a {
 
   img {
     width: 100%;
-
   }
 
   .btn {
@@ -36,7 +35,7 @@ a {
     //border-radius: $border-radius;
   }
 
-  @media (hover:hover) {
+  @media (hover: hover) {
     &:hover::before {
       opacity: 0.8;
     }
@@ -59,7 +58,6 @@ h3 {
   z-index: 100;
 
   @include mobile-small {
-
     font-size: 18px;
   }
 }

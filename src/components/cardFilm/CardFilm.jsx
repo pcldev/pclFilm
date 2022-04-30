@@ -12,7 +12,8 @@ function CardFilm(props) {
   let link = "/";
 
   if (category === 0 || props.domainType === 0) {
-    link = `/movie/${id}/${category ? category + 1 : props.domainType + 1}`;
+    //link = `/movie/${id}/${category ? category + 1 : props.domainType + 1}`;
+    link = `/movie/${id}/1`;
   } else if (category === 1 || props.domainType === 1) {
     link = `/tv/${id}/${category ? category - 1 : props.domainType - 1}`;
   }

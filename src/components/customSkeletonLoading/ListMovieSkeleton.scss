@@ -1,0 +1,6 @@
+@use "../../scss" as *;
+
+.list_movie {
+  @include flex(center, flex-start);
+  overflow: hidden;
+}

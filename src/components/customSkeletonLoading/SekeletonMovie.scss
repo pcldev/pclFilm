@@ -1,11 +1,12 @@
-@use '../../scss/'as *;
+@use "../../scss/" as *;
 
 .animated-bg {
-  background-image: linear-gradient(45deg,
-      #171717 0%,
-      #342c32 50%,
-      #492750 100%,
-    );
+  background-image: linear-gradient(
+    45deg,
+    #171717 0%,
+    #342c32 50%,
+    #492750 100%
+  );
   background-size: 200% 100%;
   animation: bgPos 1s linear infinite;
 
@@ -75,14 +76,26 @@
     height: 45vh;
   }
 
+  &.movie_item {
+    height: 45vh;
+    flex: 0 0 calc(100% * (1 / 6));
+    margin-right: 20px;
+    @include tablet {
+      height: 30vh;
+    }
+    @include mobile {
+      height: 20vh;
+    }
+    @include mobile-small {
+      height: 15vh;
+    }
+  }
+
   &.movie_name {
     width: 100%;
     height: 40px;
   }
 }
-
-
-
 
 @keyframes bgPos {
   0% {
