@@ -9,10 +9,6 @@ a {
   width: 100%;
   margin-bottom: 1rem;
 
-  img {
-    width: 100%;
-  }
-
   .btn {
     position: absolute;
     top: 50%;
@@ -48,6 +44,12 @@ a {
 
   .lazy-load-image-background {
     width: 100%;
+    img {
+      height: 300px !important;
+      @include mobile {
+        height: 250px !important;
+      }
+    }
   }
 }
 
@@ -57,6 +59,9 @@ h3 {
   color: $white;
   z-index: 100;
 
+  @include tablet {
+    font-size: 20px;
+  }
   @include mobile-small {
     font-size: 18px;
   }

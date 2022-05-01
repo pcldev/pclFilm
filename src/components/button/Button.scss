@@ -1,4 +1,4 @@
-@use '../../scss/'as *;
+@use "../../scss/" as *;
 
 button {
   cursor: pointer;
@@ -16,7 +16,6 @@ button {
   font-weight: 600;
   box-shadow: 0 0 7px 8px #6b436b;
   transition: box-shadow 0.3s ease;
-
   &:hover {
     box-shadow: 0 0 7px 15px #6b436b;
   }
@@ -27,8 +26,6 @@ button {
     font-size: 1rem;
   }
 }
-
-
 
 .btn-outline {
   border: 3px solid $white;
@@ -42,8 +39,6 @@ button {
     color: $main-color;
     background-color: $white;
   }
-
-
 }
 
 // .active {
