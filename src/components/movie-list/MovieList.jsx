@@ -1,12 +1,18 @@
 import React from "react";
 import "./MovieList.scss";
 import { Swiper, SwiperSlide } from "swiper/react";
+import SwiperCore, { Navigation } from "swiper";
+
+import "swiper/swiper-bundle.min.css";
+import "swiper/swiper.min.css";
+import "swiper/components/navigation/navigation.min.css";
+//import "swiper/modules/navigation/navigation.min.css";
 import CardFilm from "../cardFilm/CardFilm";
-import SekeletonMovie from "../customSkeletonLoading/SekeletonMovie";
 import ListMovieSkeleton from "../customSkeletonLoading/ListMovieSkeleton";
 
 function MovieList(props) {
   const items = props.items;
+  SwiperCore.use([Navigation]);
   return (
     <div className="movie-list">
       {items ? (
@@ -18,6 +24,8 @@ function MovieList(props) {
                 grabCursor={true}
                 spaceBetween={10}
                 slidesPerView={"auto"}
+                navigation={true}
+                modules={[Navigation]}
               >
                 {item.recommendContentVOList.map((detailItem, detailIndex) => (
                   <SwiperSlide key={detailIndex}>
@@ -34,7 +42,13 @@ function MovieList(props) {
             </div>
           ))
         ) : (
-          <Swiper grabCursor={true} spaceBetween={10} slidesPerView={"auto"}>
+          <Swiper
+            grabCursor={true}
+            spaceBetween={10}
+            slidesPerView={"auto"}
+            navigation={true}
+            modules={[Navigation]}
+          >
             {items.map((item, index) => (
               <SwiperSlide key={index}>
                 <CardFilm
@@ -48,18 +62,6 @@ function MovieList(props) {
           </Swiper>
         )
       ) : (
-        // [1, 2, 3, 4, 5, 6, 7].map((item) => (
-        //   <div key={item}>
-        //     <SekeletonMovie type="title" />
-        //     <Swiper grabCursor={true} spaceBetween={10} slidesPerView={"auto"}>
-        //       {[1, 2, 3, 4, 5, 6, 7].map((second_item) => (
-        //         <SwiperSlide key={second_item}>
-        //           <SekeletonMovie type="list-movie" />
-        //         </SwiperSlide>
-        //       ))}
-        //     </Swiper>
-        //   </div>
-        // ))
         <ListMovieSkeleton />
       )}
     </div>

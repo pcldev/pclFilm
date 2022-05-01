@@ -1,12 +1,21 @@
+@use "../../scss/" as *;
 .list-film {
   position: relative;
-  display: flex;
-  justify-content: space-between;
-  flex-wrap: wrap;
-  margin-top: calc(8rem);
-
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(190px, 1fr));
+  gap: 1.4rem;
+  margin: 8rem 7vw 0 7vw;
+  @include mobile {
+    grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
+  }
   li {
     max-width: 300px;
-    margin: 0 auto;
+    display: block;
+    .lazy-load-image-background {
+      display: block !important;
+      img {
+        width: 100%;
+      }
+    }
   }
 }
