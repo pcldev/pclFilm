@@ -10,6 +10,7 @@ import "swiper/swiper.scss";
 import "./BannerSlide.scss";
 import { useHistory } from "react-router";
 import SekeletonMovie from "../customSkeletonLoading/SekeletonMovie";
+import { resizeImage } from "../../share/tools";
 
 const BannerSlide = (props) => {
   const movieItems = props.movieItems;
@@ -51,7 +52,13 @@ const HeroSlideItem = (props) => {
     <div className={`hero-slide__item ${props.className}`}>
       <div className="banner-img">
         {item ? (
-          <LazyLoadImage src={item.cover} effect="blur" delayTime={500} />
+          <LazyLoadImage
+            src={resizeImage(item.cover, "900")}
+            loading="lazy"
+            decoding="async"
+            effect="blur"
+            delayTime={500}
+          />
         ) : (
           <SekeletonMovie type="hero-slide" />
         )}
@@ -81,7 +88,7 @@ const HeroSlideItem = (props) => {
         </div>
         <div className="hero-slide__item__content__poster">
           {item ? (
-            <img src={item.cover} alt="" />
+            <img src={resizeImage(item.cover, "500")} alt="" />
           ) : (
             <SekeletonMovie type="coverVerticalUrl" />
           )}

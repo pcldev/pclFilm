@@ -8,7 +8,7 @@ import filmApi from "../../api/fillmApi";
 import { Player } from "react-tuby";
 import "react-tuby/css/main.css";
 import { useMemo } from "react";
-import { convertSrtToVtt } from "../../share/convertSrtToVtt";
+import { convertSrtToVtt, resizeImage } from "../../share/tools";
 import { Beforeunload, useBeforeunload } from "react-beforeunload";
 
 const convertQualityToString = (groot) => {
@@ -115,7 +115,7 @@ function MoviePlayer(props) {
         <Player
           src={movieUrl}
           subtitles={subtitleList}
-          poster={props.item.coverHorizontalUrl}
+          poster={resizeImage(props.item.coverHorizontalUrl, "900")}
           playerRef={playerRef}
         >
           {(ref, props) => <ReactHlsPlayer playerRef={ref} {...props} />}

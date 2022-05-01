@@ -8,6 +8,7 @@ import filmApi from "../../api/fillmApi";
 import OutlineButton from "../../components/button/OutlineButton";
 import SekeletonMovie from "../../components/customSkeletonLoading/SekeletonMovie";
 import MovieList from "../../components/movie-list/MovieList";
+import { resizeImage } from "../../share/tools";
 
 import "./DetailMovie.scss";
 import MoviePlayer from "./Player";
@@ -29,9 +30,6 @@ function DetailMovie(props) {
     };
     fetchDetailMovie();
   }, [id, category]);
-
-  console.log(item)
-
   return (
     <>
       {
@@ -40,7 +38,10 @@ function DetailMovie(props) {
             <div
               className="banner"
               style={{
-                backgroundImage: `url(${item.coverVerticalUrl})`,
+                backgroundImage: `url(${resizeImage(
+                  item.coverVerticalUrl,
+                  "900"
+                )})`,
               }}
             ></div>
           ) : (
@@ -51,7 +52,10 @@ function DetailMovie(props) {
             <div className="movie-content__poster">
               <div className="movie-content__poster__img">
                 {item ? (
-                  <LazyLoadImage src={item.coverVerticalUrl} effect="blur" />
+                  <LazyLoadImage
+                    src={resizeImage(item.coverVerticalUrl, "500")}
+                    effect="blur"
+                  />
                 ) : (
                   <SekeletonMovie type="coverVerticalUrl" />
                 )}
