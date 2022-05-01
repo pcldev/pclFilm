@@ -14,8 +14,8 @@ function Home(props) {
         const response = await filmApi.getSearchLeaderBoard();
         document.title = "pclfilm";
         setMovieItems(response.data.list);
-      } catch {
-        console.log("error");
+      } catch (err) {
+        return <Error message={err.message} />;
       }
     };
     getMovies();

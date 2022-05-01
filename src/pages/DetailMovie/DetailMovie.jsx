@@ -6,7 +6,9 @@ import filmApi from "../../api/fillmApi";
 import OutlineButton from "../../components/button/OutlineButton";
 import SekeletonMovie from "../../components/customSkeletonLoading/SekeletonMovie";
 import MovieList from "../../components/movie-list/MovieList";
+import { FilmNotFound } from "../../share/constants";
 import { resizeImage } from "../../share/tools";
+import Error from "../Error/Error";
 import "./DetailMovie.scss";
 import MoviePlayer from "./Player";
 
@@ -16,21 +18,28 @@ function DetailMovie(props) {
   const [item, setItem] = useState(null);
 
   useEffect(() => {
-    const fetchDetailMovie = async () => {
-      const response = await filmApi.getMovieDetail({
-        id,
-        category: category - 1,
-      });
-      document.title = `Watching ${response.data.name}`;
-      setItem(response.data);
-      window.scrollTo(0, 0);
-    };
-    fetchDetailMovie();
+    try {
+      const fetchDetailMovie = async () => {
+        const response = await filmApi.getMovieDetail({
+          id,
+          category: category - 1,
+        });
+        document.title = `${
+          response.data ? `Watching ${response.data.name}` : FilmNotFound
+        }`;
+        setItem(response.data);
+        window.scrollTo(0, 0);
+      };
+      fetchDetailMovie();
+    } catch (err) {
+      return <Error message={err.message} />;
+    }
   }, [id, category]);
+  console.log(item);
   return (
     <>
-      {
-        <>
+      {item ? (
+        <div>
           {item ? (
             <div
               className="banner"
@@ -120,8 +129,10 @@ function DetailMovie(props) {
               )}
             </div>
           </div>
-        </>
-      }
+        </div>
+      ) : (
+        <Error message={FilmNotFound} />
+      )}
     </>
   );
 }
