@@ -1,16 +1,13 @@
 import React from "react";
-
+import { LazyLoadImage } from "react-lazy-load-image-component";
+import { useHistory } from "react-router";
 import SwiperCore, { Autoplay } from "swiper";
 import { Swiper, SwiperSlide } from "swiper/react";
-import { LazyLoadImage } from "react-lazy-load-image-component";
-import Button from "../button/Button";
-
 import "swiper/swiper.scss";
-
-import "./BannerSlide.scss";
-import { useHistory } from "react-router";
-import SekeletonMovie from "../customSkeletonLoading/SekeletonMovie";
 import { resizeImage } from "../../share/tools";
+import Button from "../button/Button";
+import SekeletonMovie from "../customSkeletonLoading/SekeletonMovie";
+import "./BannerSlide.scss";
 
 const BannerSlide = (props) => {
   const movieItems = props.movieItems;

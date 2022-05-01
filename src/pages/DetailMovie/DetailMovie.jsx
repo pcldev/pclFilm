@@ -1,6 +1,4 @@
-import React from "react";
-import { useEffect } from "react";
-import { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { LazyLoadImage } from "react-lazy-load-image-component";
 import "react-lazy-load-image-component/src/effects/blur.css";
 import { NavLink, useParams } from "react-router-dom";
@@ -9,7 +7,6 @@ import OutlineButton from "../../components/button/OutlineButton";
 import SekeletonMovie from "../../components/customSkeletonLoading/SekeletonMovie";
 import MovieList from "../../components/movie-list/MovieList";
 import { resizeImage } from "../../share/tools";
-
 import "./DetailMovie.scss";
 import MoviePlayer from "./Player";
 

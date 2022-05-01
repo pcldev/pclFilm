@@ -1,16 +1,12 @@
-import React from "react";
-import { useEffect } from "react";
-import { useRef } from "react";
-import { useState } from "react";
+import React, { useEffect, useMemo, useRef, useState } from "react";
 import ReactHlsPlayer from "react-hls-player/dist";
 import { useParams } from "react-router-dom";
-import filmApi from "../../api/fillmApi";
 import { Player } from "react-tuby";
 import "react-tuby/css/main.css";
-import { useMemo } from "react";
+import filmApi from "../../api/fillmApi";
 import { convertSrtToVtt, resizeImage } from "../../share/tools";
+import Error from "../Error/Error";
 import { Beforeunload, useBeforeunload } from "react-beforeunload";
-
 const convertQualityToString = (groot) => {
   if (groot === "GROOT_HD") {
     return "Full HD";
@@ -88,7 +84,7 @@ function MoviePlayer(props) {
       };
       fetchMovieUrl();
     } catch (err) {
-      console.log(err);
+      return <Error message={err.message} />;
     }
   }, [category, contentId, episodeId, typeGroot]);
 

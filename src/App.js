@@ -1,7 +1,7 @@
-import Header from "./components/header/Header";
 import "./App.scss";
-import RouteConfig from "./config/RouteConfig";
 import Footer from "./components/footer/Footer";
+import Header from "./components/header/Header";
+import RouteConfig from "./config/RouteConfig";
 
 function App() {
   return (

@@ -1,0 +1,37 @@
+@use "../../scss/variable" as *;
+@use "../../scss/breakpoint" as *;
+.error {
+  margin-top: 8rem;
+  img {
+    display: block;
+    margin: 0 auto;
+    width: 50%;
+    animation: updown 3s infinite ease;
+  }
+  h2 {
+    display: block;
+    margin: 4rem auto;
+    text-align: center;
+  }
+  p {
+    text-align: center;
+    font-size: 20px;
+    @include mobile {
+      font-size: 16px;
+    }
+  }
+  a {
+    color: $main-color;
+  }
+}
+@keyframes updown {
+  0% {
+    transform: translateY(10%);
+  }
+  50% {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(10%);
+  }
+}

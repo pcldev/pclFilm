@@ -1,14 +1,13 @@
 import React from "react";
-import "./MovieList.scss";
-import { Swiper, SwiperSlide } from "swiper/react";
 import SwiperCore, { Navigation } from "swiper";
-
+import "swiper/components/navigation/navigation.min.css";
+import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/swiper-bundle.min.css";
 import "swiper/swiper.min.css";
-import "swiper/components/navigation/navigation.min.css";
 //import "swiper/modules/navigation/navigation.min.css";
 import CardFilm from "../cardFilm/CardFilm";
 import ListMovieSkeleton from "../customSkeletonLoading/ListMovieSkeleton";
+import "./MovieList.scss";
 
 function MovieList(props) {
   const items = props.items;

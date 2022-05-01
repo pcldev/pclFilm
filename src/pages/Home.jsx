@@ -1,8 +1,9 @@
 import React, { useEffect, useState } from "react";
+import filmApi from "../api/fillmApi";
 import BannerSlide from "../components/bannerSlide/BannerSlide";
 import MovieList from "../components/movie-list/MovieList";
+import Error from "./Error/Error";
 
-import filmApi from "../api/fillmApi";
 function Home(props) {
   const [items, setItems] = useState(null);
   const [movieItems, setMovieItems] = useState(null);
@@ -31,7 +32,7 @@ function Home(props) {
       };
       fetchListFilm();
     } catch (err) {
-      console.log(err);
+      return <Error message={err.message} />;
     }
   }, []);
   return (

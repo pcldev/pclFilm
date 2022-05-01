@@ -1,8 +1,9 @@
 import React from "react";
 import { Route, Switch } from "react-router-dom";
-import ResultSearchFilmPage from "../pages/ResultSearchFilmPage";
-import Home from "../pages/Home";
 import DetailMovie from "../pages/DetailMovie/DetailMovie";
+import Error from "../pages/Error/Error";
+import Home from "../pages/Home";
+import ResultSearchFilmPage from "../pages/ResultSearchFilmPage";
 
 function RouteConfig(props) {
   return (
@@ -20,7 +21,7 @@ function RouteConfig(props) {
         <DetailMovie />
       </Route>
       <Route path="*">
-        <h1>Nothing here</h1>
+        <Error />
       </Route>
     </Switch>
   );

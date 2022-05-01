@@ -1,11 +1,8 @@
-import React from "react";
-import { useEffect } from "react";
-import { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import filmApi from "../api/fillmApi";
 import ListFilm from "../components/cardFilm/ListFilm";
-import SekeletonMovie from "../components/customSkeletonLoading/SekeletonMovie";
-import LoadingSpinner from "../components/spinner/LoadingSpinner";
+import Error from "./Error/Error";
 
 function ResultSearchFilmPage(props) {
   const [items, setItems] = useState();
@@ -18,11 +15,15 @@ function ResultSearchFilmPage(props) {
       };
       fetchResultSearchFilm();
     } catch (err) {
-      console.log(err);
+      return <Error message={err.message} />;
     }
   }, [params.keyWord]);
 
-  return <ListFilm items={items} />;
+  return items && items.length === 0 ? (
+    <Error message="No film couldn't not be found!" />
+  ) : (
+    <ListFilm items={items} />
+  );
 }
 
 export default ResultSearchFilmPage;
