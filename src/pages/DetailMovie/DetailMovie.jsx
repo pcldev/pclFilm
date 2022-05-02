@@ -16,7 +16,7 @@ function DetailMovie(props) {
   const { id, category } = useParams();
 
   const [item, setItem] = useState(null);
-  const check = useRef(null);
+  const [checkFilmExisted, setCheckFilmExisted] = useState(true);
   useEffect(() => {
     try {
       const fetchDetailMovie = async () => {
@@ -28,8 +28,7 @@ function DetailMovie(props) {
           response.data ? `Watching ${response.data.name}` : FilmNotFound
         }`;
         console.log(response.data);
-        if (!response.data) check.current = false;
-        else check.current = true;
+        if (!response.data) setCheckFilmExisted(false);
         setItem(response.data);
         window.scrollTo(0, 0);
       };
@@ -39,7 +38,7 @@ function DetailMovie(props) {
     }
   }, [id, category]);
 
-  if (check.current === true)
+  if (checkFilmExisted === true)
     return (
       <div>
         {item ? (
@@ -133,7 +132,7 @@ function DetailMovie(props) {
         </div>
       </div>
     );
-  else return <Error message={FilmNotFound} />;
+  else if (checkFilmExisted === false) return <Error message={FilmNotFound} />;
 }
 
 export default DetailMovie;
