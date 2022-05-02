@@ -1,7 +1,6 @@
 @use "../../scss/variable" as *;
 .suggestion-box {
   background-color: $body-bg;
-  border: 1px solid $white;
   border-radius: 15px;
   display: flex;
   flex-direction: column;

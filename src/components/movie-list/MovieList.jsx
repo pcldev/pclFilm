@@ -17,7 +17,7 @@ function MovieList(props) {
       {items ? (
         items.find((item) => item.homeSectionName) ? (
           items.map((item, index) => (
-            <div key={index}>
+            <div key={index} className="movie-list_lstfilm">
               <h1>{item.homeSectionName || item.name}</h1>
               <Swiper
                 grabCursor={true}

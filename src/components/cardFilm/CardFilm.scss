@@ -4,68 +4,78 @@ a {
   width: 100%;
 }
 
-.movie-card {
-  position: relative;
-  width: 100%;
-  margin-bottom: 1rem;
-  z-index: 5;
-  .btn {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%) scale(0);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-  }
-
-  &::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    bottom: 0;
-    right: 0;
-    background-color: rgb(58, 55, 55);
-    opacity: 0;
-    transition: opacity 0.3s ease;
-    z-index: 101;
-    //border-radius: $border-radius;
-  }
-
-  @media (hover: hover) {
-    &:hover::before {
-      opacity: 0.8;
-    }
-
-    &:hover .btn {
-      z-index: 102;
-      transform: translate(-50%, -50%) scale(1);
-    }
-  }
-
-  .lazy-load-image-background {
+.wrapper-card {
+  //border: 1px solid white;
+  border-radius: 15px;
+  overflow: hidden;
+  .movie-card {
+    position: relative;
     width: 100%;
-    height: 300px !important;
-    display: block;
-    @include mobile {
-      height: 250px !important;
+    z-index: 5;
+    .btn {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%) scale(0);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
     }
-    img {
-      height: 100% !important;
-      display: block;
+
+    &::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      bottom: 0;
+      right: 0;
+      background-color: rgb(58, 55, 55);
+      opacity: 0;
+      transition: opacity 0.3s ease;
+      z-index: 101;
+    }
+
+    @media (hover: hover) {
+      &:hover::before {
+        opacity: 0.8;
+      }
+
+      &:hover .btn {
+        z-index: 102;
+        transform: translate(-50%, -50%) scale(1);
+      }
+    }
+
+    .lazy-load-image-background {
+      width: 100%;
+      height: 300px !important;
+      display: block !important;
+      @include mobile {
+        height: 250px !important;
+      }
+      img {
+        height: 100% !important;
+        display: block;
+      }
     }
   }
-}
 
-h3 {
-  padding: 14px 0;
-  font-size: 20px;
-  color: $white;
-  z-index: 100;
-
-  @include tablet {
+  h3 {
+    //padding: 14px 0;
+    padding-top: 0.5rem;
+    padding-bottom: 0.7rem;
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
     font-size: 20px;
-  }
-  @include mobile-small {
-    font-size: 18px;
+    color: $white;
+    z-index: 100;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+    background-color: rgb(47, 46, 46);
+    @include tablet {
+      font-size: 20px;
+    }
+    @include mobile-small {
+      font-size: 18px;
+    }
   }
 }
