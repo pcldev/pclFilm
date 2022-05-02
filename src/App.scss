@@ -1,5 +1,5 @@
-@use "./scss/"as *;
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;900&display=swap');
+@use "./scss/" as *;
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;900&display=swap");
 
 * {
   padding: 0;
@@ -39,7 +39,7 @@ body {
   }
 
   &::-webkit-scrollbar {
-    background-color: #F5F5F5;
+    background-color: #f5f5f5;
     border-radius: 100px;
     width: 12px;
   }
@@ -49,17 +49,14 @@ body {
     border-radius: 100px;
     background-color: #555;
   }
-
 }
-
-
 
 a {
   text-decoration: none;
   color: unset;
 }
 
-@media (hover :hover) {
+@media (hover: hover) {
   a:hover {
     color: $main-color;
   }
@@ -113,8 +110,16 @@ iframe {
   margin-right: auto;
 }
 
+.mt-1 {
+  margin-top: 1rem;
+}
+
 .mt-2 {
   margin-top: 2rem;
+}
+
+.pd-10 {
+  padding: 10px;
 }
 
 .font-size-22 {
@@ -123,4 +128,12 @@ iframe {
 
 .width-100 {
   width: 100%;
+}
+
+.overflow-hidden {
+  overflow: hidden !important;
+}
+
+.display-none {
+  display: none !important;
 }

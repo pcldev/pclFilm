@@ -1,0 +1,17 @@
+@use "../../scss/variable" as *;
+.suggestion-box {
+  background-color: $body-bg;
+  border: 1px solid $white;
+  border-radius: 15px;
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  overflow-y: scroll;
+  overflow-x: hidden;
+  max-height: 200px;
+  z-index: 999999999;
+  a {
+    border-bottom: 1px solid $white;
+    padding: 5px 0;
+  }
+}

@@ -7,10 +7,7 @@ import { useEffect } from "react";
 import FilmSearch from "../search/FilmSearch";
 
 function Header(props) {
-  //const { pathname } = useLocation();
   const headerRef = useRef(null);
-
-  //const active = headerNav.findIndex((e) => e.path === pathname);
 
   useEffect(() => {
     const shrinkHeader = () => {
