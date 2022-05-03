@@ -51,8 +51,6 @@ const HeroSlideItem = (props) => {
         {item ? (
           <LazyLoadImage
             src={resizeImage(item.cover, "900")}
-            loading="lazy"
-            decoding="async"
             effect="blur"
             delayTime={500}
           />

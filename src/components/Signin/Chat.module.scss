@@ -1,14 +1,21 @@
+@use "../../scss/breakpoint" as *;
 .chat {
   display: flex;
   align-items: center;
   gap: 0.5rem;
   margin-bottom: 1rem;
+  width: 100%;
   img {
     width: 60px;
     height: 60px;
     border-radius: 50%;
+    @include mobile {
+      width: 48px;
+      height: 48px;
+    }
   }
   .content {
+    width: 100%;
     .title {
       h3,
       p {
@@ -20,7 +27,8 @@
       }
     }
     .message {
-      max-width: 100%;
+      overflow-wrap: break-word;
+      max-width: 60%;
     }
   }
 }
