@@ -1,0 +1,26 @@
+.chat {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+  img {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+  }
+  .content {
+    .title {
+      h3,
+      p {
+        display: inline;
+      }
+      p {
+        margin-left: 10px;
+        font-weight: 200;
+      }
+    }
+    .message {
+      max-width: 100%;
+    }
+  }
+}

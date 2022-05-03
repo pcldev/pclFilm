@@ -15,10 +15,10 @@ function RouteConfig(props) {
         <ResultSearchFilmPage />
       </Route>
       <Route path="/tv/:id/:category" exact>
-        <DetailMovie />
+        <DetailMovie type="tv" />
       </Route>
       <Route path="/movie/:id/:category" exact>
-        <DetailMovie />
+        <DetailMovie type="movie" />
       </Route>
       <Route path="*">
         <Error />

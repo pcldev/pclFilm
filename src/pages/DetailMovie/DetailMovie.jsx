@@ -1,4 +1,5 @@
-import React, { useEffect, useState } from "react";
+import React, { useCallback, useEffect, useState } from "react";
+import { useAuthState } from "react-firebase-hooks/auth";
 import { LazyLoadImage } from "react-lazy-load-image-component";
 import "react-lazy-load-image-component/src/effects/blur.css";
 import { NavLink, useParams } from "react-router-dom";
@@ -6,6 +7,11 @@ import filmApi from "../../api/fillmApi";
 import OutlineButton from "../../components/button/OutlineButton";
 import SekeletonMovie from "../../components/customSkeletonLoading/SekeletonMovie";
 import MovieList from "../../components/movie-list/MovieList";
+import ListChat from "../../components/Signin/ListChat";
+import SendComment from "../../components/Signin/SendComment";
+import Signin from "../../components/Signin/Signin";
+import { auth, db } from "../../config/firebase";
+import useAsync from "../../hooks/useAsync";
 import { FilmNotFound } from "../../share/constants";
 import { resizeImage } from "../../share/tools";
 import Error from "../Error/Error";
@@ -13,30 +19,40 @@ import "./DetailMovie.scss";
 import MoviePlayer from "./Player";
 
 function DetailMovie(props) {
-  const { id, category } = useParams();
+  const [user] = useAuthState(auth);
+  const [messages, setMessages] = useState([]);
+  const { id } = useParams();
 
   const [item, setItem] = useState(null);
   const [checkFilmExisted, setCheckFilmExisted] = useState(true);
-  useEffect(() => {
+
+  const fetchData = useCallback(async () => {
     try {
-      const fetchDetailMovie = async () => {
-        const response = await filmApi.getMovieDetail({
-          id,
-          category: category - 1,
-        });
-        document.title = `${
-          response.data ? `Watching ${response.data.name}` : FilmNotFound
-        }`;
-        if (!response.data) setCheckFilmExisted(false);
-        setItem(response.data);
-        window.scrollTo(0, 0);
-      };
-      fetchDetailMovie();
+      const response = await filmApi.getMovieDetail({
+        id,
+        category: props.type === "tv" ? 1 : 0,
+      });
+      document.title = `${
+        response.data ? `Watching ${response.data.name}` : FilmNotFound
+      }`;
+      if (!response.data) setCheckFilmExisted(false);
+      window.scrollTo(0, 0);
+      return response.data;
     } catch (err) {
       return <Error message={err.message} />;
     }
-  }, [id, category]);
+  }, [id, props.type]);
 
+  useAsync(fetchData, setItem);
+
+  useEffect(() => {
+    db.collection("comments")
+      .orderBy("createdAt", "desc")
+      .limit(50)
+      .onSnapshot((snapshot) => {
+        setMessages(snapshot.docs.map((doc) => doc.data()));
+      });
+  }, []);
   if (checkFilmExisted === true)
     return (
       <div>
@@ -82,9 +98,9 @@ function DetailMovie(props) {
                 <SekeletonMovie type="genres" />
               )}
             </div>
-            <p className="overview">
+            <div className="overview">
               {item ? item.introduction : <SekeletonMovie type="overview" />}
-            </p>
+            </div>
           </div>
         </div>
         <div className="container">
@@ -115,6 +131,18 @@ function DetailMovie(props) {
                 </div>
               </div>
             )}
+            <div className="comments">
+              <h3>Comments</h3>
+              {messages.length > 0 && <ListChat messages={messages} id={id} />}
+              {user ? (
+                <div>
+                  <SendComment />
+                </div>
+              ) : (
+                <Signin />
+              )}
+            </div>
+
             {item && (
               <div className="section mb-3">
                 <div className="section__header mb-2">

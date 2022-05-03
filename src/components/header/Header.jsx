@@ -15,9 +15,9 @@ function Header(props) {
         document.body.scrollTop > 100 ||
         document.documentElement.scrollTop > 100
       ) {
-        headerRef.current.classList.add("shrink");
+        headerRef?.current.classList.add("shrink");
       } else {
-        headerRef.current.classList.remove("shrink");
+        headerRef?.current.classList.remove("shrink");
       }
     };
     window.addEventListener("scroll", shrinkHeader);
@@ -33,9 +33,9 @@ function Header(props) {
           <img src={logo} alt="" />
           <Link to="/">pclfilm</Link>
         </div>
-        <ul className="header__nav">
+        <div className="header__nav">
           <FilmSearch />
-        </ul>
+        </div>
       </div>
     </div>
   );

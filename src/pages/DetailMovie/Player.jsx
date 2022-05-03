@@ -1,4 +1,10 @@
-import React, { useEffect, useMemo, useRef, useState } from "react";
+import React, {
+  useCallback,
+  useEffect,
+  useMemo,
+  useRef,
+  useState,
+} from "react";
 import ReactHlsPlayer from "react-hls-player/dist";
 import { useParams } from "react-router-dom";
 import { Player } from "react-tuby";
@@ -7,15 +13,8 @@ import filmApi from "../../api/fillmApi";
 import { convertSrtToVtt, resizeImage } from "../../share/tools";
 import Error from "../Error/Error";
 import { Beforeunload, useBeforeunload } from "react-beforeunload";
-const convertQualityToString = (groot) => {
-  if (groot === "GROOT_HD") {
-    return "Full HD";
-  } else if (groot === "GROOT_SD") {
-    return 720;
-  } else if (groot === "GROOT_LD") {
-    return 540;
-  }
-};
+import { convertQualityToString } from "../../share/utils";
+import useAsync from "../../hooks/useAsync";
 
 function MoviePlayer(props) {
   const params = useParams();
@@ -60,33 +59,32 @@ function MoviePlayer(props) {
   //   }
   // };
 
-  useEffect(() => {
+  const fetchData = useCallback(async () => {
     try {
-      const fetchMovieUrl = async () => {
-        const response = await Promise.all(
-          typeGroot.map(async (typeG) => {
-            return await filmApi.getMovieMedia({
-              category,
-              contentId,
-              episodeId,
-              definition: typeG,
-            });
-          })
-        ).then((values) => values);
-        const newArrMediaUrl = [];
-        response.forEach((dat) => {
-          newArrMediaUrl.push({
-            quality: convertQualityToString(dat.data?.currentDefinition),
-            url: dat.data.mediaUrl,
+      const response = await Promise.all(
+        typeGroot.map(async (typeG) => {
+          return await filmApi.getMovieMedia({
+            category,
+            contentId,
+            episodeId,
+            definition: typeG,
           });
+        })
+      ).then((values) => values);
+      const newArrMediaUrl = [];
+      response.forEach((dat) => {
+        newArrMediaUrl.push({
+          quality: convertQualityToString(dat.data?.currentDefinition),
+          url: dat.data.mediaUrl,
         });
-        setMovieUrl(newArrMediaUrl);
-      };
-      fetchMovieUrl();
+      });
+      return newArrMediaUrl;
     } catch (err) {
       return <Error message={err.message} />;
     }
-  }, [category, contentId, episodeId, typeGroot]);
+  }, [category, episodeId, contentId, typeGroot]);
+
+  useAsync(fetchData, setMovieUrl);
 
   useEffect(() => {
     const height = (playerRef?.current?.offsetWidth * 9) / 16 + "px";

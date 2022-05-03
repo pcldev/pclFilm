@@ -19,14 +19,16 @@ function CardFilm(props) {
     link = `/tv/${id}/${category ? category - 1 : props.domainType - 1}`;
   }
   return (
-    <Link to={link} title={title} className="wrapper-card">
-      <div className="movie-card">
-        <LazyLoadImage src={resizeImage(imageUrl, "200")} effect="blur" />
-        <Button>
-          <i className="bx bx-play">Watch</i>
-        </Button>
+    <Link to={link} title={title}>
+      <div className="wrapper-card">
+        <div className="movie-card">
+          <LazyLoadImage src={resizeImage(imageUrl, "200")} effect="blur" />
+          <Button>
+            <i className="bx bx-play">Watch</i>
+          </Button>
+        </div>
+        <h3>{title}</h3>
       </div>
-      <h3>{title}</h3>
     </Link>
   );
 }

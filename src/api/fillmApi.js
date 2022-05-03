@@ -9,7 +9,6 @@ const filmApi = {
     const url = "/movieDrama/get";
     return axiosClient.get(url, { params });
   },
-  //add cmt
   getMovieMedia: (params) => {
     const url = "/media/previewInfo";
     return axiosClient.get(url, { params });

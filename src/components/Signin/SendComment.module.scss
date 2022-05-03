@@ -1,0 +1,30 @@
+.sendComment {
+  margin-top: 2rem;
+  form {
+    position: relative;
+
+    input {
+      border: none;
+      display: block;
+      //position: absolute;
+      width: 100%;
+      padding: 15px;
+      border-radius: 50px;
+      z-index: 8;
+      padding-right: 60px;
+    }
+    .btn_send {
+      display: block;
+      border: none;
+      border-radius: 50px;
+      position: absolute;
+
+      right: 10px;
+      top: 0;
+      background-color: transparent;
+      width: 35px;
+      z-index: 9;
+      transform: translateY(15%);
+    }
+  }
+}
