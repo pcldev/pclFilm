@@ -130,3 +130,20 @@
     width: min-content;
   }
 }
+
+.thumbnail {
+  img {
+    width: 30px;
+    height: 30px;
+  }
+  &-icon {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    & > div {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+  }
+}

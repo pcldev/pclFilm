@@ -17,6 +17,8 @@ import { resizeImage } from "../../share/tools";
 import Error from "../Error/Error";
 import "./DetailMovie.scss";
 import MoviePlayer from "./Player";
+import starImg from "../../assets/star.png";
+import calendarImg from "../../assets/calendar.png";
 
 function DetailMovie(props) {
   const [user] = useAuthState(auth);
@@ -110,9 +112,25 @@ function DetailMovie(props) {
             ) : (
               <SekeletonMovie type="movie" />
             )}
-            <h2 className="mt-2 font-size-22 ">
-              {item ? item.name : <SekeletonMovie type="movie_name" />}
-            </h2>
+            {item ? (
+              <div className="thumbnail">
+                <h2 className="mt-2 font-size-22 ">{item.name}</h2>
+                <br />
+                <div className="thumbnail-icon">
+                  <div>
+                    <img src={starImg} alt="" />
+                    <span>{item.score}</span>
+                  </div>
+                  <div>
+                    <img src={calendarImg} alt="" />
+                    <span>{item.year}</span>
+                  </div>
+                </div>
+              </div>
+            ) : (
+              <SekeletonMovie type="movie_name" />
+            )}
+
             {item && item.episodeVo.length > 1 && (
               <div className="container section mt-2 mb-2 episode">
                 <h3>Episodes</h3>
@@ -133,26 +151,32 @@ function DetailMovie(props) {
             )}
             <div className="comments">
               <h3>Comments</h3>
-              {messages.length > 0 && <ListChat messages={messages} id={id} />}
-              {user ? (
-                <div>
-                  <SendComment />
-                </div>
-              ) : (
-                <Signin />
-              )}
+              <div className="section">
+                {messages.length > 0 && (
+                  <ListChat messages={messages} id={id} />
+                )}
+                {user ? (
+                  <div>
+                    <SendComment />
+                  </div>
+                ) : (
+                  <Signin />
+                )}
+              </div>
             </div>
 
             {item && (
-              <div className="section mb-3">
+              <div className=" mb-3">
                 <div className="section__header mb-2">
                   <h2 className="mt-2">Similar</h2>
                 </div>
-                <MovieList
-                  items={
-                    item.refList.length !== 0 ? item.refList : item.likeList
-                  }
-                />
+                <div className="section">
+                  <MovieList
+                    items={
+                      item.refList.length !== 0 ? item.refList : item.likeList
+                    }
+                  />
+                </div>
               </div>
             )}
           </div>
