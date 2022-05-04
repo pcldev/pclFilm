@@ -120,7 +120,9 @@ function DetailMovie(props) {
                   <div>
                     <img src={starImg} alt="" />
                     <span>
-                      {item.score ? `${item.score} / 10` : "No scores yet!"}
+                      {item.score
+                        ? `${item.score} / 10`
+                        : "No scores rate yet!"}
                     </span>
                   </div>
                   <div>
