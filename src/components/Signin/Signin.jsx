@@ -12,15 +12,17 @@ function Signin(props) {
     auth.signInWithPopup(provider);
   };
 
-  const signInWithFacebook = () => {};
   return (
     <div className="sign-in">
       <img src={signInImg} alt="" />
 
-      <p>You need login to comment!</p>
-      <Button className="small" onClick={signInWithGoogle}>
-        Login with Google
-      </Button>
+      <p>
+        You need
+        <Button className="small ml-1 mr-1" onClick={signInWithGoogle}>
+          login
+        </Button>
+        to comment!
+      </p>
     </div>
   );
 }
