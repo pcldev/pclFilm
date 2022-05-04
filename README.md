@@ -36,6 +36,7 @@ https://youtu.be/ntYXj9W1Ez8
 <div align="middle">
   <img src="Header Movie.png" width="40%" />
   <img src="Movie.png" width="40%" />
+  <br/>
   <img src="Thumbnail Movie.png" width="40%" />
 </div>
 
