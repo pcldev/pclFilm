@@ -119,7 +119,9 @@ function DetailMovie(props) {
                 <div className="thumbnail-icon">
                   <div>
                     <img src={starImg} alt="" />
-                    <span>{item.score}</span>
+                    <span>
+                      {item.score ? `${item.score} / 10` : "No scores yet!"}
+                    </span>
                   </div>
                   <div>
                     <img src={calendarImg} alt="" />
