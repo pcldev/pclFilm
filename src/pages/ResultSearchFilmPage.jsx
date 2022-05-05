@@ -9,6 +9,7 @@ function ResultSearchFilmPage(props) {
   const params = useParams();
   useEffect(() => {
     try {
+      document.title = "pclfilm";
       const fetchResultSearchFilm = async () => {
         const response = await filmApi.postSearchFilmKeyWord(params.keyWord);
         setItems(response.data.searchResults);
@@ -19,10 +20,15 @@ function ResultSearchFilmPage(props) {
     }
   }, [params.keyWord]);
 
-  return items && items.length === 0 ? (
-    <Error message="No film couldn't not be found!" />
-  ) : (
-    <ListFilm items={items} />
+  return (
+    <div className="mt-8rem">
+      <h2 className="container">Search results for "{params.keyWord}"</h2>
+      {items && items.length === 0 ? (
+        <Error message="No film couldn't not be found!" />
+      ) : (
+        <ListFilm items={items} />
+      )}
+    </div>
   );
 }
 

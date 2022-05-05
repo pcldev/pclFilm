@@ -4,7 +4,7 @@
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(190px, 1fr));
   gap: 1.4rem;
-  margin: 8rem auto 2vw auto;
+  margin: 3vw auto 2vw auto;
   @include mobile {
     grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
   }
