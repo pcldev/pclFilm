@@ -25,14 +25,13 @@ function MoviePlayer(props) {
     () => episodeVo[0].definitionList.map((def) => def.code),
     [episodeVo]
   );
-  const subtitleObj = {
-    lang: "",
-    language: "",
-    url: "",
-  };
+
   const subtitleList = [];
-  props.item.episodeVo[params.category]?.subtitlingList.forEach((sub) => {
-    const subtitles = Object.create(subtitleObj);
+
+  props.item.episodeVo[
+    props.item.episodeVo[params.category] ? params.category : 0
+  ].subtitlingList.forEach((sub) => {
+    const subtitles = {};
     subtitles.lang = sub.languageAbbr;
     subtitles.language = sub.language;
     subtitles.url = convertSrtToVtt(sub.subtitlingUrl);
