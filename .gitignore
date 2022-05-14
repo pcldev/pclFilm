@@ -28,5 +28,3 @@ yarn-error.log*
 .firebaserc
 firebase.json
 
-#image readme
-/img
