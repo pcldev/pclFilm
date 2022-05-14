@@ -27,21 +27,21 @@ https://youtu.be/ntYXj9W1Ez8
 ## Home page
 
 <div align="middle">
-  <img src="Home Page.png" width="40%" />
-  <img src="List Movie.png" width="40%" />
+  <img src="/img/Home Page.png" width="40%" />
+  <img src="/img/List Movie.png" width="40%" />
 </div>
 
 ## Movie Page
 
 <div align="middle">
-  <img src="Header Movie.png" width="40%" />
-  <img src="Movie.png" width="40%" />
+  <img src="/img/Header Movie.png" width="40%" />
+  <img src="/img/Movie.png" width="40%" />
   <br/>
-  <img src="Thumbnail Movie.png" width="40%" />
+  <img src="/img/Thumbnail Movie.png" width="40%" />
 </div>
 
 ## Search Results Page
 
 <div align="middle">
-  <img src="Search.png" width="40%" />
+  <img src="/img/Search.png" width="40%" />
 </div>
