@@ -1,5 +1,5 @@
 <div align="middle">
-  <img src="Home Page.png" width="80%"  />
+  <img src="/img/Home Page.png" width="80%"  />
 </div>
 
 # Welcome to pclFilm - Movie Web with Real Data Film
