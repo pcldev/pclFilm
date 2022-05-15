@@ -1,4 +1,4 @@
-@use "../../scss/"as *;
+@use "../../scss/" as *;
 
 .hero-slide {
   margin-bottom: 3rem;
@@ -20,6 +20,7 @@
     right: 0;
     bottom: 0;
 
+    height: fit-content;
     .lazy-load-image-background {
       display: block !important;
 
@@ -52,11 +53,10 @@
         height: 100%;
 
         img {
-          height: 100%
+          height: 100%;
         }
       }
     }
-
   }
 
   &__content {
@@ -72,7 +72,7 @@
         width: 100%;
       }
 
-      &>*~* {
+      & > * ~ * {
         margin-top: 3rem;
       }
 
@@ -90,7 +90,7 @@
         font-weight: 700;
       }
 
-      .btns>*~* {
+      .btns > * ~ * {
         margin-left: 1rem;
       }
 
@@ -122,14 +122,13 @@
     }
   }
 
-  &.active>&__content>&__content__poster {
+  &.active > &__content > &__content__poster {
     img {
       transform: scale(1);
     }
   }
 
-  &.active>&__content>&__content__info {
-
+  &.active > &__content > &__content__info {
     .btns,
     .title {
       opacity: 1;
@@ -153,8 +152,6 @@
     width: 100%;
     height: 100%;
   }
-
-
 }
 
 .swiper-slide {
