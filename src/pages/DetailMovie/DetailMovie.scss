@@ -37,6 +37,34 @@
   position: relative;
   padding: 0 2rem;
 
+  @media (max-height: 820px) {
+    & {
+      margin-top: -400px;
+    }
+  }
+
+  @media (max-height: 630px) {
+    & {
+      margin-top: -300px;
+    }
+  }
+
+  @media (max-height: 510px) {
+    & {
+      margin-top: -200px;
+    }
+  }
+  @media (max-height: 380px) {
+    & {
+      margin-top: -100px;
+    }
+
+    &__img {
+      img {
+        width: 90%;
+      }
+    }
+  }
   &__poster {
     flex: 1;
 
