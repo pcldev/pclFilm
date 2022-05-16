@@ -21,7 +21,7 @@ function ResultSearchFilmPage(props) {
   }, [params.keyWord]);
 
   return (
-    <div className="mt-8rem">
+    <div className="mt-8rem pd-20">
       <h2 className="container">Search results for "{params.keyWord}"</h2>
       {items && items.length === 0 ? (
         <Error message="No film couldn't not be found!" />
