@@ -1,14 +1,18 @@
-import React from "react";
-import { useLocation } from "react-router-dom";
-import { Route, Switch } from "react-router-dom";
+import React, { useCallback, useContext } from "react";
+import { Route, Switch, useLocation } from "react-router-dom";
 import DetailMovie from "../pages/DetailMovie/DetailMovie";
 import Error from "../pages/Error/Error";
 import Home from "../pages/Home";
 import ResultSearchFilmPage from "../pages/ResultSearchFilmPage";
-
+import { SearchInputContext } from "../store/searchInput-context";
 function RouteConfig(props) {
   const location = useLocation();
+  const searchInputCtx = useContext(SearchInputContext);
+  const { setKeyWord } = searchInputCtx;
+
   React.useEffect(() => {
+    setKeyWord("");
+
     window.scrollTo(0, 0);
   }, [location.pathname, location.search]);
   return (

@@ -1,16 +1,17 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useContext, useEffect, useRef, useState } from "react";
 import { useHistory } from "react-router-dom";
 import filmApi from "../../api/fillmApi";
+import { SearchInputContext } from "../../store/searchInput-context";
 import Input from "../input/Input";
 import "./FilmSearch.scss";
 import SuggestionBox from "./SuggestionBox";
 
 function FilmSearch(props) {
   const history = useHistory();
+  const searchInputCtx = useContext(SearchInputContext);
+  const { keyWord, setKeyWord, suggestions, setSuggestions } = searchInputCtx;
 
   const [focus, setFocus] = useState(false);
-  const [keyWord, setKeyWord] = useState("");
-  const [suggestions, setSuggestions] = useState([]);
   const typingTimeoutRef = useRef(null);
 
   const container = useRef(null);
