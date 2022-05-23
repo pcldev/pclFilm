@@ -1,4 +1,5 @@
 import React from "react";
+import { useLocation } from "react-router-dom";
 import { Route, Switch } from "react-router-dom";
 import DetailMovie from "../pages/DetailMovie/DetailMovie";
 import Error from "../pages/Error/Error";
@@ -6,6 +7,10 @@ import Home from "../pages/Home";
 import ResultSearchFilmPage from "../pages/ResultSearchFilmPage";
 
 function RouteConfig(props) {
+  const location = useLocation();
+  React.useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [location.pathname, location.search]);
   return (
     <Switch>
       <Route path="/" exact>

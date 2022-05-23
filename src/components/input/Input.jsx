@@ -12,6 +12,9 @@ const Input = (props) => {
         onChange={props.onChange ? (e) => props.onChange(e) : null}
         onFocus={props.onFocus}
         onBlur={props.onBlur}
+        onKeyDown={(e) => e.stopPropagation()}
+        onKeyUp={(e) => e.stopPropagation()}
+        onKeyPress={(e) => e.stopPropagation()}
       />
     </div>
   );
