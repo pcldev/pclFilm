@@ -8,7 +8,14 @@ Website:https://pclfilm.web.app/
 
 ## Installation
 
-After fork or pull code , just `npm i` and `npm start`
+After fork or pull code ,you need create .evn file .In .env file and create your own `api key` , `messenger id` and `app id` in firebase :<
+```env
+REACT_APP_API_URL=https://ga-mobile-api.loklok.tv/cms/app
+REACT_APP_API_KEY=""
+REACT_APP_MESSENDERID=""
+REACT_APP_APP_ID=""
+```
+Finally just `npm i` and `npm start`
 
 ### API
 
