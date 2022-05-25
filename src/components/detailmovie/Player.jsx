@@ -11,7 +11,7 @@ import { Player } from "react-tuby";
 import "react-tuby/css/main.css";
 import filmApi from "../../api/fillmApi";
 import { convertSrtToVtt, resizeImage } from "../../share/tools";
-import Error from "../Error/Error";
+import Error from "../../pages/Error/Error";
 import { Beforeunload, useBeforeunload } from "react-beforeunload";
 import { convertQualityToString } from "../../share/utils";
 import useAsync from "../../hooks/useAsync";

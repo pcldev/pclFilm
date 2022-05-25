@@ -10,7 +10,6 @@ function FilmSearch(props) {
   const history = useHistory();
   const searchInputCtx = useContext(SearchInputContext);
   const { keyWord, setKeyWord, suggestions, setSuggestions } = searchInputCtx;
-
   const [focus, setFocus] = useState(false);
   const typingTimeoutRef = useRef(null);
 

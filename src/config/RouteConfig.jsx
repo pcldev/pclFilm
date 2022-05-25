@@ -1,6 +1,6 @@
-import React, { useCallback, useContext } from "react";
+import React, { useContext } from "react";
 import { Route, Switch, useLocation } from "react-router-dom";
-import DetailMovie from "../pages/DetailMovie/DetailMovie";
+import DetailMovie from "../pages/MoviePage";
 import Error from "../pages/Error/Error";
 import Home from "../pages/Home";
 import ResultSearchFilmPage from "../pages/ResultSearchFilmPage";
