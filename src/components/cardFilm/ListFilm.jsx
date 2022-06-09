@@ -15,7 +15,7 @@ function ListFilm(props) {
                 type={item?.dramaType?.code}
                 id={item?.id}
                 category={item?.category}
-                domainType={item?.domainType}
+                domainType={item.domainType}
               />
             </li>
           ))
