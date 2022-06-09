@@ -37,6 +37,12 @@
   position: relative;
   padding: 0 2rem;
 
+  @media (min-height: 900px) {
+    & {
+      margin-top: -500px;
+    }
+  }
+
   @media (max-height: 820px) {
     & {
       margin-top: -400px;
