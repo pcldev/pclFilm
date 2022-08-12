@@ -63,7 +63,7 @@ const MovieWatch = (props) => {
           </div>
         </div>
       </div>
-      <div className="container" style={{zIndex: 2}}>
+      <div className="container" style={{ zIndex: 2 }}>
         <div className="section mb-3">
           {item ? <MoviePlayer item={item} /> : <SekeletonMovie type="movie" />}
           {item ? (
