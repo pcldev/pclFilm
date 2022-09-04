@@ -5,16 +5,15 @@ import React, {
   useRef,
   useState,
 } from "react";
-import ReactHlsPlayer from "react-hls-player/dist";
+import HlsPlayer from "@ducanh2912/react-hls-player";
 import { useParams } from "react-router-dom";
 import { Player } from "react-tuby";
 import "react-tuby/css/main.css";
 import filmApi from "../../api/fillmApi";
-import { convertSrtToVtt, resizeImage } from "../../share/tools";
-import Error from "../../pages/Error/Error";
-import { Beforeunload, useBeforeunload } from "react-beforeunload";
-import { convertQualityToString } from "../../share/utils";
 import useAsync from "../../hooks/useAsync";
+import Error from "../../pages/Error/Error";
+import { resizeImage } from "../../share/tools";
+import { convertQualityToString } from "../../share/utils";
 
 function MoviePlayer(props) {
   const params = useParams();
@@ -34,7 +33,9 @@ function MoviePlayer(props) {
     const subtitles = {};
     subtitles.lang = sub.languageAbbr;
     subtitles.language = sub.language;
-    subtitles.url = convertSrtToVtt(sub.subtitlingUrl);
+    subtitles.url = `/api/subtitle?url=${encodeURIComponent(
+      sub.subtitlingUrl
+    )}`;
     subtitleList.push(subtitles);
   });
 
@@ -111,7 +112,7 @@ function MoviePlayer(props) {
           poster={resizeImage(props.item.coverHorizontalUrl, "900")}
           playerRef={playerRef}
         >
-          {(ref, props) => <ReactHlsPlayer playerRef={ref} {...props} />}
+          {(ref, props) => <HlsPlayer playerRef={ref} {...props} />}
         </Player>
       )}
       {/* </Beforeunload> */}
