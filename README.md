@@ -8,10 +8,21 @@ Website:https://pclfilm.web.app/
 
 ## Installation
 
-After fork or pull code ,you need create .evn file and copy code in .env.default into .env file
+After fork or pull code, you need create .env file and copy code in .env.default into .env file
 
+## Server
+
+From the root folder
 ```
-Finally just `npm i` and `npm start`
+cd middleware && node index.js
+```
+
+## Client
+
+From the root folder
+```
+npm i and npm start
+```
 
 ### API
 
@@ -48,4 +59,3 @@ https://youtu.be/ntYXj9W1Ez8
 <div align="middle">
   <img src="/img/Search.png" width="40%" />
 </div>
-```
