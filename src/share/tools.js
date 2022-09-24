@@ -5,6 +5,6 @@ export const resizeImage = (url, width = "", height = "") =>
         url
       )}&w=${width}&h=${height}&fit=outside`;
 export const convertSrtToVtt = (url) =>
-  `https://srt-to-vtt.vercel.app?url=${encodeURIComponent(url)}`;
+  `https://srt-to-vtt-two.vercel.app?url=${url}`;
 
 // tool made by napthedev

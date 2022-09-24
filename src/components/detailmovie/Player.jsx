@@ -14,7 +14,7 @@ import useAsync from "../../hooks/useAsync";
 import Error from "../../pages/Error/Error";
 import { resizeImage } from "../../share/tools";
 import { convertQualityToString } from "../../share/utils";
-
+import { convertSrtToVtt } from "../../share/tools";
 function MoviePlayer(props) {
   const params = useParams();
   let { category, id: contentId, episodeVo } = props.item;
@@ -31,11 +31,13 @@ function MoviePlayer(props) {
     props.item.episodeVo[params.category] ? params.category : 0
   ].subtitlingList.forEach((sub) => {
     const subtitles = {};
+    console.log(sub.subtitlingUrl);
     subtitles.lang = sub.languageAbbr;
     subtitles.language = sub.language;
-    subtitles.url = `/api/subtitle?url=${encodeURIComponent(
-      sub.subtitlingUrl
-    )}`;
+    // subtitles.url = `/api/subtitle?url=${encodeURIComponent(
+    //   sub.subtitlingUrl
+    // )}`;
+    subtitles.url = `${convertSrtToVtt(sub.subtitlingUrl)}`;
     subtitleList.push(subtitles);
   });
 
